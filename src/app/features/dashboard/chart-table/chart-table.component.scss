@@ -1,0 +1,29 @@
+.chart-table-wrapper {
+  padding: 1rem;
+  margin: 1rem;
+  border-radius: 12px;
+}
+
+.section-title {
+  margin-bottom: 16px;
+}
+
+.chart-table-row {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  flex-wrap: wrap;
+  padding: 1rem;
+}
+
+.chart-container {
+  flex: 2;
+  min-width: 300px;
+  max-height: 600px;
+  overflow: hidden;
+}
+
+.table-container {
+  flex: 1;
+  min-width: 250px;
+}

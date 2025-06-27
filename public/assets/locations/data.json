@@ -1,0 +1,12 @@
+[
+  { "name": "Heinzelova 70", "lat": 45.815, "lng": 15.981 },
+  { "name": "Zagreb Center", "lat": 45.813, "lng": 15.978 },
+  { "name": "Jarun", "lat": 45.787, "lng": 15.931 },
+  { "name": "Maksimir", "lat": 45.829, "lng": 16.016 },
+  { "name": "Trešnjevka", "lat": 45.798, "lng": 15.957 },
+  { "name": "Dubrava", "lat": 45.832, "lng": 16.061 },
+  { "name": "Trnje", "lat": 45.800, "lng": 15.976 },
+  { "name": "Siget", "lat": 45.768, "lng": 15.970 },
+  { "name": "Vrbik", "lat": 45.799, "lng": 15.967 },
+  { "name": "Črnomerec", "lat": 45.821, "lng": 15.943 }
+]

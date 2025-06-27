@@ -1,0 +1,27 @@
+.dashboard-wrapper {
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.chart-card {
+  padding: 16px;
+}
+
+.chart-table {
+  display: flex;
+  flex-direction: row;
+  gap: 16px;
+  flex-wrap: wrap;
+
+  .chart {
+    flex: 2;
+    padding: 16px;
+  }
+
+  .table {
+    flex: 1;
+    padding: 16px;
+  }
+}

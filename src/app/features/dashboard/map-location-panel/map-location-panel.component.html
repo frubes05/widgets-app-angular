@@ -1,0 +1,28 @@
+<mat-toolbar color="primary">
+  <span>🗺️ Lokacije na karti</span>
+</mat-toolbar>
+
+<div class="map-locations">
+  @if (selectedLocation | async; as selected) { @if (locations | async; as locs)
+  {
+  <mat-card class="map-card">
+    <awa-map-widget [location]="selected" />
+  </mat-card>
+
+  <mat-card class="location-list-card">
+    <awa-location-list
+      [locations]="locs"
+      [selectedLocation]="selected"
+      (selectLocation)="onLocationSelect($event)"
+    />
+  </mat-card>
+  } } @else {
+  <mat-card class="map-card">
+    <awa-map-widget-skeletons />
+  </mat-card>
+
+  <mat-card class="location-list-card">
+    <awa-location-list-skeletons />
+  </mat-card>
+  }
+</div>

@@ -1,0 +1,13 @@
+<mat-nav-list class="location-list">
+  @for (loc of locations; track loc.name) {
+  <mat-list-item
+    (click)="select(loc)"
+    class="location-item"
+    (keydown.enter)="select(loc)"
+    (keydown.space)="select(loc)"
+    [class]="{ selected: loc.name === selectedLocation?.name}"
+  >
+    <h4 matLine>{{ loc.name }}</h4>
+  </mat-list-item>
+  }
+</mat-nav-list>

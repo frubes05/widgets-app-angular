@@ -1,0 +1,58 @@
+import { Injectable } from '@angular/core';
+import { BehaviorSubject, forkJoin, map, Observable, switchMap } from 'rxjs';
+import { HttpService } from '@shared/services';
+import { PokemonDetails, PokemonListItem } from '@shared/models';
+
+@Injectable({
+  providedIn: 'root',
+})
+export class PokemonInformationService {
+  private readonly API = 'https://pokeapi.co/api/v2/pokemon';
+
+  pokemonsSubject = new BehaviorSubject<PokemonDetails[]>([]);
+  loadingSubject = new BehaviorSubject<boolean>(false);
+
+  pokemons$ = this.pokemonsSubject.asObservable();
+  loading$ = this.loadingSubject.asObservable();
+
+  constructor(private readonly httpService: HttpService) {}
+
+  getPokemonPage(page: number): Observable<PokemonDetails[]> {
+    const offset = (page - 1) * 10;
+    return this.httpService
+      .request<{ results: PokemonListItem[] }>(
+        `${this.API}?offset=${offset}&limit=10`
+      )
+      .pipe(
+        map((res) => res.results),
+        map((results) =>
+          results.map((r) =>
+            this.httpService.request<any>(r.url).pipe(
+              map((data) => ({
+                id: data.id,
+                name: data.name,
+                height: data.height,
+                weight: data.weight,
+                types: data.types.map((t: any) => t.type.name),
+                image: data.sprites.front_default,
+              }))
+            )
+          )
+        ),
+        switchMap((pokemonRequests) => forkJoin(pokemonRequests))
+      );
+  }
+
+  getPokemonDetails(name: string): Observable<PokemonDetails> {
+    return this.httpService.request<any>(`${this.API}/${name}`).pipe(
+      map((data) => ({
+        id: data.id,
+        name: data.name,
+        height: data.height,
+        weight: data.weight,
+        types: data.types.map((t: any) => t.type.name),
+        image: data.sprites.front_default,
+      }))
+    );
+  }
+}

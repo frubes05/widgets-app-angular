@@ -1,0 +1,24 @@
+<mat-card class="pokemon-detail">
+  @if (pokemon$ | async; as pokemon) {
+    <h1 class="pokemon-detail__title">{{ pokemon.name | titlecase }}</h1>
+
+    <img
+      [src]="pokemon.image"
+      [alt]="pokemon.name"
+      class="pokemon-detail__image"
+    />
+
+    <div class="pokemon-detail__info">
+      <p><strong>ID:</strong> {{ pokemon.id }}</p>
+      <p><strong>Height:</strong> {{ pokemon.height }}</p>
+      <p><strong>Weight:</strong> {{ pokemon.weight }}</p>
+      <p><strong>Types:</strong> {{ pokemon.types.join(", ") }}</p>
+    </div>
+
+    <div class="pokemon-detail__actions">
+      <ng-content select="[actions]"></ng-content>
+    </div>
+  } @else {
+    <awa-card-skeletons/>
+  }
+</mat-card>

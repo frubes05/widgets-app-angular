@@ -1,0 +1,31 @@
+<div class="pagination">
+  <button
+    mat-icon-button
+    (click)="prevPage()"
+    [disabled]="currentPage === 1"
+    aria-label="Previous page"
+  >
+    ⏮
+  </button>
+
+  @for (page of visiblePages; track page) {
+    <button
+      mat-raised-button
+      [color]="page === currentPage ? 'primary' : undefined"
+      (click)="updatePageQuery(page)"
+      class="pagination__button"
+      [class.pagination__button--active]="page === currentPage"
+    >
+      {{ page }}
+    </button>
+  }
+
+  <button
+    mat-icon-button
+    (click)="nextPage()"
+    [disabled]="currentPage === totalPages"
+    aria-label="Next page"
+  >
+    ⏭
+  </button>
+</div>

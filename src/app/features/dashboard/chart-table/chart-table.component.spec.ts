@@ -5,7 +5,7 @@ import { DashboardFacade } from '@facades/dashboard/dashboard.facade';
 import { ChartDisplayData, AveragedDataPoint } from '@shared/models';
 import { By } from '@angular/platform-browser';
 import { ChartComponent } from '@features/dashboard/chart/chart.component';
-import { DataTableComponent } from '@features/dashboard/data-table/data-table.component';
+import { DataTableComponent } from '@shared/components/data-table/data-table.component';
 
 describe('ChartTableComponent', () => {
   let component: ChartTableComponent;

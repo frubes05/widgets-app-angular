@@ -6,21 +6,21 @@ import { MatGridListModule } from '@angular/material/grid-list';
 import { PokemonDetails } from '@shared/models';
 import { CommonModule } from '@angular/common';
 import { Observable } from 'rxjs';
-import { CardSkeletonsComponent } from '@features/pokemon/card/card-skeletons/card-skeletons.component';
+import { PokemonCardSkeletonsComponent } from '@features/pokemon/pokemon-card/pokemon-card-skeletons/pokemon-card-skeletons.component';
 
 @Component({
-  selector: 'awa-card',
+  selector: 'awa-pokemon-card',
   imports: [
     CommonModule,
     MatCardModule,
     MatProgressSpinnerModule,
-    CardSkeletonsComponent,
+    PokemonCardSkeletonsComponent,
     MatChipsModule,
     MatGridListModule,
   ],
-  templateUrl: './card.component.html',
-  styleUrl: './card.component.scss',
+  templateUrl: './pokemon-card.component.html',
+  styleUrl: './pokemon-card.component.scss',
 })
-export class CardComponent {
+export class PokemonCardComponent {
   @Input() pokemon$!: Observable<PokemonDetails | null>;
 }

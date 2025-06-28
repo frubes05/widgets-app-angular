@@ -3,9 +3,9 @@ import { MatGridListModule } from '@angular/material/grid-list';
 import { RepeatDirective } from '@shared/directives';
 
 @Component({
-  selector: 'awa-card-skeletons',
+  selector: 'awa-pokemon-card-skeletons',
   imports: [RepeatDirective, MatGridListModule],
-  templateUrl: './card-skeletons.component.html',
-  styleUrl: './card-skeletons.component.scss'
+  templateUrl: './pokemon-card-skeletons.component.html',
+  styleUrl: './pokemon-card-skeletons.component.scss'
 })
-export class CardSkeletonsComponent {}
+export class PokemonCardSkeletonsComponent {}

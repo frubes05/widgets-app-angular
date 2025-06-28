@@ -5,13 +5,13 @@ import { NgChartsModule } from 'ng2-charts';
 import { MatCardModule } from '@angular/material/card';
 import { MatTableModule } from '@angular/material/table';
 import { DashboardFacade } from '@facades/dashboard/dashboard.facade';
-import { DataTableComponent } from '@features/dashboard/data-table/data-table.component';
+import { DataTableComponent } from '@shared/components/data-table/data-table.component';
 import { ChartDisplayData, AveragedDataPoint } from '@shared/models';
 import { Observable } from 'rxjs';
 import { ChartComponent } from "@features/dashboard/chart/chart.component";
 import { ChartSkeletonsComponent } from "@features/dashboard/chart/chart-skeletons/chart-skeletons/chart-skeletons.component";
-import { DataTableSkeletonComponent } from '@features/dashboard/data-table/data-table-skeletons/data-table-skeletons.component';
-import { CHART_COLUMNS } from '@shared/constants';
+import { DataTableSkeletonComponent } from '@shared/components/data-table/data-table-skeletons/data-table-skeletons.component';
+import { CHART_TABLE_COLUMNS } from '@shared/constants';
 
 @Component({
   selector: 'awa-chart-table',
@@ -33,7 +33,7 @@ import { CHART_COLUMNS } from '@shared/constants';
 
 export class ChartTableComponent {
   private readonly dashboardFacade = inject(DashboardFacade);
-  readonly displayedColumns = CHART_COLUMNS;
+  readonly displayedColumns = CHART_TABLE_COLUMNS;
 
   readonly chartOptions: ChartOptions = {
     responsive: true,

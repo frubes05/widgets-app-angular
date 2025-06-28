@@ -1,0 +1,15 @@
+table {
+  width: 100%;
+  font-size: 14px;
+  th {
+    font-weight: bold;
+  }
+
+  .clickable-row {
+    cursor: pointer;
+
+    &:hover {
+      background-color: #f0f0f0;
+    }
+  }
+}

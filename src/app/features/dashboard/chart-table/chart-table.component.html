@@ -10,7 +10,7 @@
 
     <mat-card class="table-container">
       @if (tableData$ | async; as tableData) {
-      <awa-data-table [data]="tableData" [displayedColumns]="displayedColumns" />
+      <awa-data-table [data]="tableData" [displayedColumns]="displayedColumns" [isClickable]="false" />
       } @else {
       <awa-data-table-skeleton [rowsLength]="6" [columns]="displayedColumns" />
       }

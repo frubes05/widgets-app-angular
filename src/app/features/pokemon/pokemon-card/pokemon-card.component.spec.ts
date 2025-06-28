@@ -1,12 +1,12 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-import { CardComponent } from './card.component';
+import { PokemonCardComponent } from './pokemon-card.component';
 import { of } from 'rxjs';
 import { By } from '@angular/platform-browser';
 import { PokemonDetails } from '@shared/models';
 
 describe('CardComponent (no slot projection)', () => {
-  let fixture: ComponentFixture<CardComponent>;
-  let component: CardComponent;
+  let fixture: ComponentFixture<PokemonCardComponent>;
+  let component: PokemonCardComponent;
 
   const mockPokemon: PokemonDetails = {
     id: 25,
@@ -14,15 +14,18 @@ describe('CardComponent (no slot projection)', () => {
     height: 4,
     weight: 60,
     types: ['electric'],
-    image: 'https://example.com/pikachu.png'
+    image: 'https://example.com/pikachu.png',
+    base_experience: 60,
+    abilities: [],
+    stats: [],
   };
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [CardComponent]
+      imports: [PokemonCardComponent]
     }).compileComponents();
 
-    fixture = TestBed.createComponent(CardComponent);
+    fixture = TestBed.createComponent(PokemonCardComponent);
     component = fixture.componentInstance;
   });
 

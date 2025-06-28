@@ -10,4 +10,10 @@ export interface PokemonDetails {
   weight: number;
   types: string[];
   image: string;
+  base_experience: number;
+  abilities: string[];
+  stats: {
+    name: string;
+    value: number;
+  }[];
 }

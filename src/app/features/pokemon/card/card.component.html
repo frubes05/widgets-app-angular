@@ -1,24 +1,58 @@
-<mat-card class="pokemon-detail">
+<article class="pokemon-card">
   @if (pokemon$ | async; as pokemon) {
-    <h1 class="pokemon-detail__title">{{ pokemon.name | titlecase }}</h1>
-
+  <div class="pokemon-card__sections">
     <img
       [src]="pokemon.image"
       [alt]="pokemon.name"
-      class="pokemon-detail__image"
+      class="pokemon-card__image"
     />
 
-    <div class="pokemon-detail__info">
-      <p><strong>ID:</strong> {{ pokemon.id }}</p>
-      <p><strong>Height:</strong> {{ pokemon.height }}</p>
-      <p><strong>Weight:</strong> {{ pokemon.weight }}</p>
-      <p><strong>Types:</strong> {{ pokemon.types.join(", ") }}</p>
-    </div>
+    <div class="pokemon-card__wrapper">
+      <h1 class="pokemon-card__title">{{ pokemon.name | titlecase }}</h1>
+      <div class="pokemon-card__info">
+      <div class="pokemon-card__base">
+        <p><span>Height:</span> {{ pokemon.height }}</p>
+        <p><span>Weight:</span> {{ pokemon.weight }}</p>
 
-    <div class="pokemon-detail__actions">
-      <ng-content select="[actions]"></ng-content>
+        <p>
+          <span>Abilities:</span>
+          @for (ability of pokemon.abilities; track ability; let $ls = $last) {
+          <span>{{ ability }}</span>
+          }
+        </p>
+        <p><span>Base experience:</span> {{ pokemon.base_experience }}</p>
+      </div>
+
+      <div>
+        <div class="pokemon-card__types">
+          <p>Types</p>
+          @for (type of pokemon.types; track type; let $ls = $last) {
+          <span [class]="'pokemon-card__type type--' + type">{{ type }}</span>
+          }
+        </div>
+
+        <div class="pokemon-card__stats">
+          <p>Stats</p>
+          <ul>
+            @for (stat of pokemon.stats; track stat.name) {
+            <span class="pokemon-card__stat">
+              <span class="pokemon-card__stat__name"
+                >{{ stat.name | titlecase }}:</span
+              >
+              {{ stat.value }}
+            </span>
+            }
+          </ul>
+        </div>
+
+        <div class="pokemon-card__actions">
+          <ng-content select="[actions]"></ng-content>
+        </div>
+      </div>
+      </div>
     </div>
+  </div>
   } @else {
-    <awa-card-skeletons/>
+  <awa-card-skeletons />
   }
-</mat-card>
+</article>

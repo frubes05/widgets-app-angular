@@ -1,59 +1,179 @@
-.pokemon-detail {
-  max-width: 600px;
-  margin: 2rem auto;
-  padding: 1.5rem;
-  display: flex;
-  flex-direction: column;
-  gap: 1.5rem;
-  background-color: #fafafa;
-  border-radius: 12px;
-}
+.pokemon-card {
+  background: none;
+  box-shadow: none;
 
-.pokemon-detail__title {
-  font-size: 2rem;
-  font-weight: 600;
-  text-align: center;
-  margin-bottom: 0.5rem;
-}
-
-.pokemon-detail__content {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 1rem;
-
-  @media (min-width: 600px) {
-    flex-direction: row;
-    justify-content: center;
-    align-items: flex-start;
+  &__title {
+    margin-top: 0;
+    text-align: center;
   }
-}
 
-.pokemon-detail__image {
-  display: block;
-  margin: 0 auto;
-  max-width: 100%;
-  height: auto;
-  object-fit: contain;
-}
+  &__wrapper {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    background-color: #e0e0e0;
+    border-radius: 20px;
+    padding: 20px;
+    box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.5);
+  }
 
-.pokemon-detail__info {
-  font-size: 0.95rem;
-  display: flex;
-  flex-direction: column;
-  gap: 0.3rem;
-}
+  &__sections {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    gap: 24px;
 
-.pokemon-detail__info p {
-  margin: 0;
-}
+    @media (min-width: 768px) {
+      flex-direction: row;
+    }
+  }
 
-.pokemon-detail__actions {
-  display: flex;
-  justify-content: center;
-  margin-top: 1rem;
-}
+  &__info {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
 
-.pokemon-detail__actions button {
-  min-width: 100px;
+    @media (min-width: 768px) {
+      flex-direction: row;
+    }
+  }
+
+  &__image {
+    width: 100%;
+    height: 400px;
+    object-fit: contain;
+    background-color: #e0e0e0;
+    border-radius: 20px;
+    box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.5);
+
+    @media (min-width: 768px) {
+      width: 300px;
+      height: auto;
+    }
+  }
+
+  &__base {
+    padding: 20px;
+    border-radius: 20px;
+    background-color: #30a7d7;
+    font-weight: 400;
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 12px 24px;
+
+    p {
+      display: flex;
+      flex-direction: column;
+    }
+
+    span:first-of-type {
+      font-weight: 600;
+      margin-bottom: 12px;
+      color: white;
+    }
+  }
+
+  &__types {
+    p {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      flex-wrap: wrap;
+      font-weight: 600;
+    }
+  }
+
+  &__type {
+    width: fit-content;
+    padding: 0.25rem 0.75rem;
+    border-radius: 12px;
+    margin: 0.25rem;
+    color: white;
+    font-weight: bold;
+    text-transform: uppercase;
+
+    &.type--grass {
+      background-color: #78c850;
+    }
+    &.type--poison {
+      background-color: #a040a0;
+    }
+    &.type--fire {
+      background-color: #f08030;
+    }
+    &.type--water {
+      background-color: #6890f0;
+    }
+    &.type--flying {
+      background-color: #a890f0;
+    }
+    &.type--normal {
+      background-color: #a8a878;
+    }
+    &.type--ground {
+      background-color: #e0c068;
+    }
+    &.type--bug {
+      background-color: #a8b820;
+    }
+    &.type--ghost {
+      background-color: black;
+    }
+    &.type--electric {
+      background-color: red;
+    }
+    &.type--psychic {
+      background-color: #57514e;
+    }
+    &.type--rock {
+      background-color: grey;
+    }
+    &.type--fighting {
+      background-color: grey;
+    }
+    &.type--fairy {
+      background-color: pink;
+    }
+    &.type--steel {
+      background-color: darkgray;
+    }
+    &.type--ice {
+      background-color: lightgrey;
+    }
+  }
+
+  &__stats {
+    p {
+      font-weight: 600;
+    }
+
+    ul {
+      padding: 0;
+      margin: 0;
+      list-style-type: none;
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+      max-width: 400px;
+    }
+
+    .pokemon-card__stat {
+      width: fit-content;
+      padding: 0.25rem 0.75rem;
+      border-radius: 12px;
+      margin: 0.25rem;
+      color: white;
+      background-color: #114edb;
+      font-weight: bold;
+      text-transform: uppercase;
+    }
+  }
+
+  &__actions {
+    @media (min-width: 768px) {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+    }
+  }
 }

@@ -52,5 +52,12 @@
       font-size: 0.95rem;
       margin: 0;
     }
+
+    &-wrapper {
+      display: flex;
+      justify-content: flex-start;
+      gap: 12px;
+      align-items: center;
+    }
   }
 }

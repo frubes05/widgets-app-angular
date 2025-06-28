@@ -28,4 +28,10 @@
   box-shadow: 0px 2px 8px rgba(0,0,0,0.5);
   border-radius: 20px;
   padding: 2rem;
+  overflow-x: scroll;
+  width: 100%;
+
+  @media (min-width: 548px) {
+    overflow-x: unset;
+  }
 }

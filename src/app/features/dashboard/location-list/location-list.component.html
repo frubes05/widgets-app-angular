@@ -5,9 +5,12 @@
     class="location-item"
     (keydown.enter)="select(loc)"
     (keydown.space)="select(loc)"
-    [class]="{ selected: loc.name === selectedLocation?.name}"
+    [class]="{ selected: loc.name === selectedLocation?.name }"
   >
-    <h4 matLine>{{ loc.name }}</h4>
+    <div class="location-item-wrapper">
+      <mat-icon>location_on</mat-icon>
+      <h4 matLine>{{ loc.name }}</h4>
+    </div>
   </mat-list-item>
   }
 </mat-nav-list>

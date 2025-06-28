@@ -7,7 +7,7 @@ import { LocationModel } from '@shared/models';
 @Component({
   selector: 'awa-location-list',
   standalone: true,
-  imports: [CommonModule, MatListModule, MatIconModule],
+  imports: [CommonModule, MatListModule, MatIconModule, MatIconModule],
   templateUrl: './location-list.component.html',
   styleUrls: ['./location-list.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,

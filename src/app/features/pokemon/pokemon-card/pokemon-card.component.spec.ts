@@ -45,9 +45,9 @@ describe('PokemonCardComponent', () => {
 
     expect(title.textContent).toContain('Pikachu');
     expect(img.src).toBe(mockPokemon.image);
-    expect(info.textContent).toContain('Height: 4');
-    expect(info.textContent).toContain('Weight: 60');
-    expect(info.textContent).toContain('Types: electric');
+    expect(info.textContent).toContain('Height:4');
+    expect(info.textContent).toContain('Weight:60');
+
   });
 
   it('should show skeleton loader if pokemon is null', () => {

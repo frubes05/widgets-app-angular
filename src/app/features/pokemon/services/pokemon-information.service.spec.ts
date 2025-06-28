@@ -14,8 +14,8 @@ describe('PokemonInformationService', () => {
     TestBed.configureTestingModule({
       providers: [
         PokemonInformationService,
-        { provide: HttpService, useValue: httpServiceSpy }
-      ]
+        { provide: HttpService, useValue: httpServiceSpy },
+      ],
     });
 
     service = TestBed.inject(PokemonInformationService);
@@ -30,8 +30,11 @@ describe('PokemonInformationService', () => {
       const mockListResponse = {
         results: [
           { name: 'pikachu', url: 'https://pokeapi.co/api/v2/pokemon/pikachu' },
-          { name: 'bulbasaur', url: 'https://pokeapi.co/api/v2/pokemon/bulbasaur' }
-        ]
+          {
+            name: 'bulbasaur',
+            url: 'https://pokeapi.co/api/v2/pokemon/bulbasaur',
+          },
+        ],
       };
 
       const mockPikachuData = {
@@ -40,7 +43,17 @@ describe('PokemonInformationService', () => {
         height: 4,
         weight: 60,
         types: [{ type: { name: 'electric' } }],
-        sprites: { front_default: 'pikachu.png' }
+        sprites: {
+          front_default: 'pikachu.png',
+          other: {
+            'official-artwork': {
+              front_default: 'pikachu.png',
+            },
+          },
+        },
+        base_experience: 60,
+        abilities: [],
+        stats: [],
       };
 
       const mockBulbasaurData = {
@@ -49,7 +62,17 @@ describe('PokemonInformationService', () => {
         height: 7,
         weight: 69,
         types: [{ type: { name: 'grass' } }, { type: { name: 'poison' } }],
-        sprites: { front_default: 'bulbasaur.png' }
+        sprites: {
+          front_default: 'bulbasaur.png',
+          other: {
+            'official-artwork': {
+              front_default: 'bulbasaur.png',
+            },
+          },
+        },
+        base_experience: 60,
+        abilities: [],
+        stats: [],
       };
 
       httpServiceSpy.request.and.callFake((url: string) => {
@@ -67,7 +90,7 @@ describe('PokemonInformationService', () => {
 
       service.getPokemonPage(1).subscribe((results) => {
         expect(results.length).toBe(2);
-        expect(results[0]).toContain({
+        expect(results[0]).toEqual({
           id: 25,
           name: 'pikachu',
           height: 4,
@@ -78,7 +101,7 @@ describe('PokemonInformationService', () => {
           abilities: [],
           stats: [],
         });
-        expect(results[1]).toContain({
+        expect(results[1]).toEqual({
           id: 1,
           name: 'bulbasaur',
           height: 7,
@@ -102,26 +125,40 @@ describe('PokemonInformationService', () => {
         height: 17,
         weight: 905,
         types: [{ type: { name: 'fire' } }, { type: { name: 'flying' } }],
-        sprites: { front_default: 'charizard.png' }
+        sprites: {
+          front_default: 'charizard.png',
+          other: {
+            'official-artwork': {
+              front_default: 'charizard.png',
+            },
+          },
+        },
+        base_experience: 60,
+        abilities: [],
+        stats: [],
       };
 
       httpServiceSpy.request.and.returnValue(of(mockCharizard));
 
-      service.getPokemonDetails('charizard').subscribe((details: PokemonDetails) => {
-        expect(httpServiceSpy.request).toHaveBeenCalledWith('https://pokeapi.co/api/v2/pokemon/charizard');
-        expect(details).toContain({
-          id: 6,
-          name: 'charizard',
-          height: 17,
-          weight: 905,
-          types: ['fire', 'flying'],
-          image: 'charizard.png',
-          base_experience: 60,
-          abilities: [],
-          stats: [],
+      service
+        .getPokemonDetails('charizard')
+        .subscribe((details: PokemonDetails) => {
+          expect(httpServiceSpy.request).toHaveBeenCalledWith(
+            'https://pokeapi.co/api/v2/pokemon/charizard'
+          );
+          expect(details).toEqual({
+            id: 6,
+            name: 'charizard',
+            height: 17,
+            weight: 905,
+            types: ['fire', 'flying'],
+            image: 'charizard.png',
+            base_experience: 60,
+            abilities: [],
+            stats: [],
+          });
+          done();
         });
-        done();
-      });
     });
   });
 });

@@ -1,21 +1,19 @@
-<mat-card class="chart-table-wrapper">
-  <h2 class="section-title">📊 Satni pregled podataka</h2>
-
+<section class="chart-table-wrapper">
   <div class="chart-table-row">
-    <div class="chart-container">
+    <mat-card class="chart-container">
       @if (chartData$ | async; as chartData) {
       <awa-chart [chartData]="chartData" [chartOptions]="chartOptions" />
       } @else {
       <awa-chart-skeletons />
       }
-    </div>
+    </mat-card>
 
-    <div class="table-container">
+    <mat-card class="table-container">
       @if (tableData$ | async; as tableData) {
       <awa-data-table [data]="tableData" [displayedColumns]="displayedColumns" />
       } @else {
       <awa-data-table-skeleton [rowsLength]="6" [columns]="displayedColumns" />
       }
-    </div>
+    </mat-card>
   </div>
-</mat-card>
+</section>

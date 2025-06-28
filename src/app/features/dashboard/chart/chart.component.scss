@@ -13,3 +13,7 @@ canvas {
   max-height: 400px;
   display: block;
 }
+
+:host {
+  width: 100%;
+}

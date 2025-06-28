@@ -12,7 +12,7 @@
 
     <div class="table-container">
       @if (tableData$ | async; as tableData) {
-      <awa-data-table [data]="tableData" />
+      <awa-data-table [data]="tableData" [displayedColumns]="displayedColumns" />
       } @else {
       <awa-data-table-skeleton [rowsLength]="6" [columns]="displayedColumns" />
       }

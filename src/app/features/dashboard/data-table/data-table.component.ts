@@ -13,5 +13,5 @@ import { AveragedDataPoint } from '@shared/models';
 })
 export class DataTableComponent {
   @Input() data: AveragedDataPoint[] = [];
-  displayedColumns = ['time', 'value'];
+  @Input() displayedColumns: Array<string> = [];
 }

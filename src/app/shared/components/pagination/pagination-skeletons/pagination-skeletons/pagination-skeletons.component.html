@@ -1,0 +1,27 @@
+<div class="pagination-skeleton">
+  <button
+    mat-icon-button
+    class="skeleton skeleton-button"
+    aria-label="Previous page"
+    disabled
+  >
+    ⏮
+  </button>
+
+  <ng-container *repeat="3; let i">
+    <button
+      mat-raised-button
+      class="skeleton skeleton-button"
+      disabled
+    ></button>
+  </ng-container>
+
+  <button
+    mat-icon-button
+    class="skeleton skeleton-button"
+    aria-label="Next page"
+    disabled
+  >
+    ⏭
+  </button>
+</div>

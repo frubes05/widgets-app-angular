@@ -1,10 +1,9 @@
 <table
   mat-table
   [dataSource]="rows"
-  class="mat-elevation-z8 pokemon-table-skeleton"
+  class="mat-elevation-z8 table-skeleton"
 >
-  @for (column of columns; track column) {
-  <ng-container [matColumnDef]="column">
+  <ng-container *repeat="columns.length; let i = index" [matColumnDef]="columns[i]">
     <th mat-header-cell *matHeaderCellDef>
       <div class="skeleton skeleton-text"></div>
     </th>
@@ -12,7 +11,6 @@
       <div class="skeleton skeleton-text"></div>
     </td>
   </ng-container>
-  }
 
   <tr mat-header-row *matHeaderRowDef="columns"></tr>
   <tr mat-row *matRowDef="let row; columns: columns"></tr>

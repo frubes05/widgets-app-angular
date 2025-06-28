@@ -9,6 +9,7 @@ import { CommonModule } from '@angular/common';
 import { DataTableSkeletonComponent } from "@features/dashboard/data-table/data-table-skeletons/data-table-skeletons.component";
 import { PaginationComponent } from "@shared/components/pagination/pagination.component";
 import { POKEMON_COLUMNS } from "@shared/constants";
+import { PaginationSkeletonsComponent } from "../../shared/components/pagination/pagination-skeletons/pagination-skeletons/pagination-skeletons.component";
 
 @Component({
   selector: 'awa-pokemon-page',
@@ -20,7 +21,8 @@ import { POKEMON_COLUMNS } from "@shared/constants";
     MatProgressSpinnerModule,
     MatCardModule,
     DataTableSkeletonComponent,
-    PaginationComponent
+    PaginationComponent,
+    PaginationSkeletonsComponent
 ],
   templateUrl: './pokemon-page.component.html',
   styleUrls: ['./pokemon-page.component.scss'],

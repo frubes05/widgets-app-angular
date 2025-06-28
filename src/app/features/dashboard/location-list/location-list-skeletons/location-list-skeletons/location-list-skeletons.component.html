@@ -1,7 +1,5 @@
 <mat-nav-list class="location-list-skeleton">
-  @for(i of [1,2,3,4,5,6,7,8,9,10]; track i) {
-  <mat-list-item class="location-skeleton-item">
+  <mat-list-item *repeat="10" class="location-skeleton-item">
     <div class="skeleton skeleton-text"></div>
   </mat-list-item>
-  }
 </mat-nav-list>

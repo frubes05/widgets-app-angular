@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import { inject, Injectable } from '@angular/core';
 import { HttpService } from '@shared/services';
 import { Observable, shareReplay } from 'rxjs';
 import { LocationModel } from '@shared/models';
@@ -7,7 +7,7 @@ import { LocationModel } from '@shared/models';
   providedIn: 'root',
 })
 export class LocationsService {
-  constructor(private readonly httpService: HttpService) {}
+  private readonly httpService = inject(HttpService);
 
   getLocations(): Observable<LocationModel[]> {
     return this.httpService

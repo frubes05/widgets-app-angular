@@ -3,6 +3,7 @@
   box-shadow: none;
 
   &__title {
+    font-size: 28px;
     margin-top: 0;
     text-align: center;
   }
@@ -33,7 +34,7 @@
     flex-direction: column;
     gap: 24px;
 
-    @media (min-width: 768px) {
+    @media (min-width: 1200px) {
       flex-direction: row;
     }
   }
@@ -53,23 +54,30 @@
   }
 
   &__base {
-    padding: 20px;
-    border-radius: 20px;
-    background-color: #30a7d7;
-    font-weight: 400;
-    display: grid;
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 12px 24px;
+    height: 200px;
+    width: 400px;
+
+    mat-grid-tile {
+      background: lightblue;
+      border: 1px solid #005dbb;
+      border-radius: 20px;
+    }
 
     p {
       display: flex;
       flex-direction: column;
+      text-align: center;
     }
 
     span:first-of-type {
-      font-weight: 600;
+      font-weight: 800;
+      font-size: 20px;
       margin-bottom: 12px;
       color: white;
+    }
+
+    span:not(:first-of-type) {
+      font-weight: 600;
     }
   }
 
@@ -80,15 +88,17 @@
       gap: 12px;
       flex-wrap: wrap;
       font-weight: 600;
+      font-size: 20px;
+      margin-top: 0;
     }
   }
 
   &__type {
     width: fit-content;
     padding: 0.25rem 0.75rem;
-    border-radius: 12px;
+    border-radius: 10px;
     margin: 0.25rem;
-    color: white;
+    color: white !important;
     font-weight: bold;
     text-transform: uppercase;
 
@@ -96,7 +106,7 @@
       background-color: #78c850;
     }
     &.type--poison {
-      background-color: #a040a0;
+      background-color: #9f5b9f;
     }
     &.type--fire {
       background-color: #f08030;
@@ -117,13 +127,13 @@
       background-color: #a8b820;
     }
     &.type--ghost {
-      background-color: black;
+      background-color: magenta;
     }
     &.type--electric {
       background-color: red;
     }
     &.type--psychic {
-      background-color: #57514e;
+      background-color: yellow;
     }
     &.type--rock {
       background-color: grey;
@@ -143,29 +153,26 @@
   }
 
   &__stats {
+    margin-top: 32px;
+
     p {
       font-weight: 600;
+      font-size: 20px;
+      margin-top: 0;
     }
 
     ul {
-      padding: 0;
-      margin: 0;
-      list-style-type: none;
-      display: flex;
-      gap: 12px;
-      flex-wrap: wrap;
       max-width: 400px;
     }
 
     .pokemon-card__stat {
       width: fit-content;
       padding: 0.25rem 0.75rem;
-      border-radius: 12px;
       margin: 0.25rem;
-      color: white;
-      background-color: #114edb;
       font-weight: bold;
       text-transform: uppercase;
+      background-color: #005dbb;
+      border: 1px solid lightblue;
     }
   }
 
@@ -176,4 +183,22 @@
       right: 20px;
     }
   }
+
+  ul {
+    padding: 0;
+    margin: 0;
+    list-style-type: none;
+    display: flex;
+    gap: 6px;
+    flex-wrap: wrap;
+  }
+}
+
+::ng-deep .white-chip {
+  background-color: white !important;
+  color: #1e1e1e !important;
+  font-weight: bold;
+  border-radius: 12px;
+  border: 1px solid #ccc;
+  padding: 4px 10px;
 }

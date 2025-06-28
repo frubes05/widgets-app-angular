@@ -3,6 +3,7 @@ import { ActivatedRoute } from '@angular/router';
 import { CommonModule, Location } from '@angular/common';
 import { MatCardModule } from '@angular/material/card';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
+import { MatButtonModule } from '@angular/material/button';
 import { PokemonFacade } from '@facades/pokemon/pokemon.facade';
 import { map, Observable, switchMap } from 'rxjs';
 import { PokemonDetails } from '@shared/models';
@@ -11,7 +12,7 @@ import { CardComponent } from "@features/pokemon/card/card.component";
 @Component({
   selector: 'awa-pokemon-details-page',
   standalone: true,
-  imports: [CommonModule, MatCardModule, MatProgressSpinnerModule, CardComponent],
+  imports: [CommonModule, MatCardModule, MatProgressSpinnerModule, MatButtonModule, CardComponent],
   templateUrl: './pokemon-details-page.component.html',
   styleUrl: './pokemon-details-page.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush

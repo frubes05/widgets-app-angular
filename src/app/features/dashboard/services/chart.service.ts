@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import { inject, Injectable } from '@angular/core';
 import { Observable, map } from 'rxjs';
 import { HttpService } from '@shared/services';
 import { AveragedDataPoint, HourlyDataMap } from '@shared/models';
@@ -7,7 +7,7 @@ import { AveragedDataPoint, HourlyDataMap } from '@shared/models';
   providedIn: 'root',
 })
 export class ChartService {
-  constructor(private readonly httpService: HttpService) {}
+  private readonly httpService = inject(HttpService);
 
   getHourlyAveragedData(): Observable<AveragedDataPoint[]> {
     return this.httpService.request<HourlyDataMap>('assets/timesheet/data.json').pipe(

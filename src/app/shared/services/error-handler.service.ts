@@ -1,12 +1,12 @@
-import { Injectable } from '@angular/core';
+import { inject, Injectable } from '@angular/core';
 import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Injectable({ providedIn: 'root' })
 export class ErrorHandlerService {
-  constructor(private readonly snackBar: MatSnackBar) {}
+  private readonly snackBarService = inject(MatSnackBar);
 
   handle(error: any): void {
     const message = error?.message ?? 'An Error occured!';
-    this.snackBar.open(message, 'Close', { duration: 4000 });
+    this.snackBarService.open(message, 'Close', { duration: 4000 });
   }
 }

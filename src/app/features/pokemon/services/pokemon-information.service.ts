@@ -1,22 +1,21 @@
-import { Injectable } from '@angular/core';
+import { inject, Injectable } from '@angular/core';
 import { BehaviorSubject, forkJoin, map, Observable, switchMap } from 'rxjs';
 import { HttpService } from '@shared/services';
 import { PokemonDetails, PokemonListItem } from '@shared/models';
-import { mapToPokemonDetails } from '../utils';
+import { mapToPokemonDetails } from '@features/pokemon/utils';
 
 @Injectable({
   providedIn: 'root',
 })
 export class PokemonInformationService {
   private readonly API = 'https://pokeapi.co/api/v2/pokemon';
+  private readonly httpService = inject(HttpService);
 
   pokemonsSubject = new BehaviorSubject<PokemonDetails[]>([]);
   loadingSubject = new BehaviorSubject<boolean>(false);
 
   pokemons$ = this.pokemonsSubject.asObservable();
   loading$ = this.loadingSubject.asObservable();
-
-  constructor(private readonly httpService: HttpService) {}
 
   getPokemonPage(page: number): Observable<PokemonDetails[]> {
     const offset = (page - 1) * 10;

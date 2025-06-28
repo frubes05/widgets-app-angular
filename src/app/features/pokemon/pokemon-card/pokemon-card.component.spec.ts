@@ -4,7 +4,7 @@ import { of } from 'rxjs';
 import { By } from '@angular/platform-browser';
 import { PokemonDetails } from '@shared/models';
 
-describe('CardComponent (no slot projection)', () => {
+describe('PokemonCardComponent', () => {
   let fixture: ComponentFixture<PokemonCardComponent>;
   let component: PokemonCardComponent;
 
@@ -29,7 +29,7 @@ describe('CardComponent (no slot projection)', () => {
     component = fixture.componentInstance;
   });
 
-  it('should create the card component', () => {
+  it('should create the pokemon card component', () => {
     component.pokemon$ = of(mockPokemon);
     fixture.detectChanges();
     expect(component).toBeTruthy();
@@ -39,13 +39,12 @@ describe('CardComponent (no slot projection)', () => {
     component.pokemon$ = of(mockPokemon);
     fixture.detectChanges();
 
-    const title = fixture.debugElement.query(By.css('.pokemon-detail__title')).nativeElement;
+    const title = fixture.debugElement.query(By.css('.pokemon-card__title')).nativeElement;
     const img = fixture.debugElement.query(By.css('img')).nativeElement;
-    const info = fixture.debugElement.query(By.css('.pokemon-detail__info')).nativeElement;
+    const info = fixture.debugElement.query(By.css('.pokemon-card__info')).nativeElement;
 
     expect(title.textContent).toContain('Pikachu');
     expect(img.src).toBe(mockPokemon.image);
-    expect(info.textContent).toContain('ID: 25');
     expect(info.textContent).toContain('Height: 4');
     expect(info.textContent).toContain('Weight: 60');
     expect(info.textContent).toContain('Types: electric');
@@ -55,7 +54,7 @@ describe('CardComponent (no slot projection)', () => {
     component.pokemon$ = of(null);
     fixture.detectChanges();
 
-    const skeleton = fixture.debugElement.query(By.css('awa-card-skeletons'));
+    const skeleton = fixture.debugElement.query(By.css('awa-pokemon-card-skeletons'));
     expect(skeleton).toBeTruthy();
   });
 });

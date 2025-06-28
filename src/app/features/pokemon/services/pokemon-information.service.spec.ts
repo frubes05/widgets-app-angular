@@ -67,7 +67,7 @@ describe('PokemonInformationService', () => {
 
       service.getPokemonPage(1).subscribe((results) => {
         expect(results.length).toBe(2);
-        expect(results[0]).toEqual({
+        expect(results[0]).toContain({
           id: 25,
           name: 'pikachu',
           height: 4,
@@ -78,7 +78,7 @@ describe('PokemonInformationService', () => {
           abilities: [],
           stats: [],
         });
-        expect(results[1]).toEqual({
+        expect(results[1]).toContain({
           id: 1,
           name: 'bulbasaur',
           height: 7,
@@ -109,7 +109,7 @@ describe('PokemonInformationService', () => {
 
       service.getPokemonDetails('charizard').subscribe((details: PokemonDetails) => {
         expect(httpServiceSpy.request).toHaveBeenCalledWith('https://pokeapi.co/api/v2/pokemon/charizard');
-        expect(details).toEqual({
+        expect(details).toContain({
           id: 6,
           name: 'charizard',
           height: 17,

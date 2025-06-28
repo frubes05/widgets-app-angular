@@ -35,7 +35,12 @@
     }
 
     &-button {
-      width: 56px !important;
+      &--numbers {
+        width: 56px !important;
+        min-width: 56px !important;
+        max-width: 56px !important;
+        flex: 0 0 auto;
+      }
     }
   }
 }

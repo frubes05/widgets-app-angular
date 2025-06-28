@@ -1,8 +1,14 @@
 .table-skeleton {
   margin-bottom: 1rem;
-  min-width: 600px;
+  width: 100%;
+
+  @media (min-width: 768px) {
+    min-width: 600px;
+  }
 
   .skeleton-header-row {
+    position: relative;
+
     th {
       padding: 0;
       border-bottom: none !important;
@@ -10,10 +16,12 @@
 
     &::before {
       content: "";
-      position: relative;
-      width: inherit;
-      display: block;
+      position: absolute;
+      width: 100%;
       height: 55.5px;
+      display: block;
+      left: 0;
+      right: 0;
       background-color: #e0e0e0;
       border-radius: 4px;
       margin-bottom: 1px;
@@ -23,7 +31,11 @@
 
   .skeleton-row {
     position: relative;
-    width: 600px;
+    width: 100%;
+
+    @media (min-width: 600px) {
+      width: 600px;
+    }
 
     td {
       padding: 0;
@@ -32,17 +44,20 @@
 
     &::before {
       content: "";
-      position: relative;
-      width: inherit;
+      position: absolute;
+      width: 100%;
+      height: 58px;
+      left: 0;
+      right: 0;
       display: block;
-      height: 55.5px;
       background-color: #e0e0e0;
       border-radius: 4px;
-      margin-bottom: 1px;
+      top: 1px;
       animation: pulse 1.5s infinite ease-in-out;
     }
   }
 }
+
 
 @keyframes pulse {
   0% {

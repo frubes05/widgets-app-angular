@@ -1,6 +1,10 @@
 .pokemon-page {
   padding: 1rem;
-  box-shadow: 0px 2px 8px rgba(0,0,0,0.5);
+  box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.5);
+
+  @media (max-width: 768px) {
+    width: 100%;
+  }
 
   &-center {
     display: flex;
@@ -20,11 +24,15 @@
 
   &__table {
     width: 100%;
-    margin-bottom: 1rem;
-    min-width: 100%;
 
-    @media (min-width: 768px) {
-      min-width: 600px;
+    @media (max-width: 600px) {
+      overflow-x: auto;
+      display: block;
+
+      mat-header-cell,
+      mat-cell {
+        white-space: nowrap;
+      }
     }
   }
 

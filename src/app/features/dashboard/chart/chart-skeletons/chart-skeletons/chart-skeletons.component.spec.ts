@@ -1,6 +1,7 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { ChartSkeletonsComponent } from './chart-skeletons.component';
+import { By } from '@angular/platform-browser';
 
 describe('ChartSkeletonsComponent', () => {
   let component: ChartSkeletonsComponent;
@@ -19,5 +20,11 @@ describe('ChartSkeletonsComponent', () => {
 
   it('should create', () => {
     expect(component).toBeTruthy();
+  });
+
+  it('should render the chart skeleton div', () => {
+    const skeletonDiv = fixture.debugElement.query(By.css('.chart-skeleton'));
+    expect(skeletonDiv).toBeTruthy();
+    expect(skeletonDiv.nativeElement.classList).toContain('skeleton');
   });
 });

@@ -38,7 +38,7 @@ describe('LocationListComponent', () => {
   });
 
   it('should highlight the selected location', () => {
-    component.selectedLocation = mockLocations[1]; // Paris
+    component.selectedLocation = mockLocations[1];
     fixture.detectChanges();
 
     const selectedItem = fixture.debugElement.query(By.css('.location-item.selected'));
@@ -50,7 +50,7 @@ describe('LocationListComponent', () => {
     spyOn(component.selectLocation, 'emit');
     fixture.detectChanges();
 
-    const item = fixture.debugElement.queryAll(By.css('.location-item'))[2]; // Rome
+    const item = fixture.debugElement.queryAll(By.css('.location-item'))[2];
     item.triggerEventHandler('click', null);
 
     expect(component.selectLocation.emit).toHaveBeenCalledOnceWith(mockLocations[2]);

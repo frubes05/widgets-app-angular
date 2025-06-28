@@ -18,6 +18,9 @@ describe('PokemonFacade', () => {
       weight: 69,
       types: ['grass', 'poison'],
       image: 'bulba.png',
+      base_experience: 60,
+      abilities: [],
+      stats: [],
     },
     {
       id: 2,
@@ -26,6 +29,9 @@ describe('PokemonFacade', () => {
       weight: 130,
       types: ['grass', 'poison'],
       image: 'ivy.png',
+      base_experience: 90,
+      abilities: [],
+      stats: [],
     },
   ];
 

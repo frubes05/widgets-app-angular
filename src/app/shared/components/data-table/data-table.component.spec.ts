@@ -4,6 +4,7 @@ import { By } from '@angular/platform-browser';
 import { AveragedDataPoint } from '@shared/models';
 import { MatTableModule } from '@angular/material/table';
 import { CommonModule } from '@angular/common';
+import { CHART_TABLE_COLUMNS } from '@shared/constants';
 
 describe('DataTableComponent', () => {
   let component: DataTableComponent;
@@ -32,7 +33,7 @@ describe('DataTableComponent', () => {
   });
 
   it('should render a table based on input data', () => {
-    component.displayedColumns = ['time', 'value'];
+    component.displayedColumns = CHART_TABLE_COLUMNS;
     component.data = [...mockData];
     fixture.detectChanges();
 
@@ -49,7 +50,7 @@ describe('DataTableComponent', () => {
   });
 
   it('should not render the table if data is empty', () => {
-    component.displayedColumns = ['time', 'value'];
+    component.displayedColumns = CHART_TABLE_COLUMNS;
     component.data = [];
     fixture.detectChanges();
 

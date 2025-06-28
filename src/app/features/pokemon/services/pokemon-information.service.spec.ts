@@ -73,7 +73,10 @@ describe('PokemonInformationService', () => {
           height: 4,
           weight: 60,
           types: ['electric'],
-          image: 'pikachu.png'
+          image: 'pikachu.png',
+          base_experience: 60,
+          abilities: [],
+          stats: [],
         });
         expect(results[1]).toEqual({
           id: 1,
@@ -81,7 +84,10 @@ describe('PokemonInformationService', () => {
           height: 7,
           weight: 69,
           types: ['grass', 'poison'],
-          image: 'bulbasaur.png'
+          image: 'bulbasaur.png',
+          base_experience: 60,
+          abilities: [],
+          stats: [],
         });
         done();
       });
@@ -109,7 +115,10 @@ describe('PokemonInformationService', () => {
           height: 17,
           weight: 905,
           types: ['fire', 'flying'],
-          image: 'charizard.png'
+          image: 'charizard.png',
+          base_experience: 60,
+          abilities: [],
+          stats: [],
         });
         done();
       });

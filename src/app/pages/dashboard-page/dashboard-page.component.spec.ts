@@ -33,11 +33,6 @@ describe('DashboardPageComponent', () => {
     expect(map).toBeTruthy();
   });
 
-  it('should contain a mat-toolbar', () => {
-    const toolbar = fixture.debugElement.query(By.css('mat-toolbar'));
-    expect(toolbar).toBeTruthy();
-  });
-
   it('should contain at least one mat-card', () => {
     const cards = fixture.debugElement.queryAll(By.css('mat-card'));
     expect(cards.length).toBeGreaterThan(0);

@@ -3,7 +3,7 @@ import { PokemonPageComponent } from './pokemon-page.component';
 import { PokemonFacade } from '@facades/pokemon/pokemon.facade';
 import { ActivatedRoute, Router } from '@angular/router';
 import { of } from 'rxjs';
-import { POKEMON_COLUMNS } from '@shared/constants';
+import { POKEMON_TABLE_COLUMNS } from '@shared/constants';
 
 describe('PokemonPageComponent', () => {
   let component: PokemonPageComponent;
@@ -64,6 +64,6 @@ describe('PokemonPageComponent', () => {
   });
 
   it('should have correct displayedColumns', () => {
-    expect(component.displayedColumns).toEqual(POKEMON_COLUMNS);
+    expect(component.displayedColumns).toEqual(POKEMON_TABLE_COLUMNS);
   });
 });

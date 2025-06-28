@@ -1,6 +1,7 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { DataTableSkeletonComponent } from './data-table-skeletons.component';
 import { By } from '@angular/platform-browser';
+import { CHART_TABLE_COLUMNS } from '@shared/constants';
 
 describe('DataTableSkeletonComponent', () => {
   let component: DataTableSkeletonComponent;
@@ -16,7 +17,7 @@ describe('DataTableSkeletonComponent', () => {
   });
 
   it('should render correct number of skeleton rows and columns', () => {
-    component.columns = ['time', 'value'];
+    component.columns = CHART_TABLE_COLUMNS;
     component.rowsLength = 3;
 
     fixture.detectChanges();

@@ -17,7 +17,10 @@ describe('PokemonDetailsPageComponent', () => {
     types: ['electric'],
     height: 4,
     weight: 60,
-    image: "https://www.pokemon.com/img"
+    image: "https://www.pokemon.com/img",
+    base_experience: 60,
+    abilities: [],
+    stats: [],
   };
 
   beforeEach(async () => {

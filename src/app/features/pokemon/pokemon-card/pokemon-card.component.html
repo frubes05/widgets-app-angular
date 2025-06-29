@@ -46,13 +46,16 @@
                 </p>
               </mat-list-item>
               <mat-list-item>
-                <p>
+                <p class="pokemon-card__base__ability--label">
                   <span>Abilities:</span>
-                  @for (ability of pokemon.abilities; track ability; let $ls = $last) {
-                    <span>{{ ability }}</span>
-                  }
                 </p>
-                <div></div>
+                <ul class="pokemon-card__base__ability--list">
+                  <li>
+                    @for (ability of pokemon.abilities; track ability; let $ls = $last) {
+                      {{ ability }}{{ $ls ? '' : ', ' }}
+                    }
+                  </li>
+                </ul>
               </mat-list-item>
               <mat-list-item>
                 <p>

@@ -110,6 +110,26 @@
     span:not(:first-of-type) {
       font-weight: $font-weight-semibold;
     }
+
+    &__ability {
+      &--list {
+        margin-bottom: $spacing-normal !important;
+        display: flex;
+        justify-content: center;
+        font-weight: 600;
+        flex-wrap: nowrap;
+
+        li {
+          white-space: nowrap;
+          text-overflow: ellipsis;
+          overflow: hidden;
+        }
+      }
+
+      &--label {
+        margin-bottom: 0 !important;
+      }
+    }
   }
 
   &__types {

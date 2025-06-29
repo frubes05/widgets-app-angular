@@ -7,7 +7,7 @@ Cilj zadatka je razvoj Angular aplikacije sa interaktivnim widgetima:
 - Karta s početnom lokacijom Heinzelova 70
 - Lista lokacija
 - Tablični i grafički prikaz podataka
-- Stranica s prikazom podataka sa [PokéAPI](https://pokeapi.co/)
+- Stranica s prikazom podataka sa [Poke API](https://pokeapi.co/)
 
 ---
 

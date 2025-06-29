@@ -89,7 +89,7 @@
     mat-grid-tile {
       border-radius: $radius-2xl;
       background-color: $color-surface;
-      animation: pulse 1.6s infinite ease-in-out;
+      animation: pulse 1.5s infinite ease-in-out;
     }
 
     p {
@@ -178,7 +178,7 @@
     display: inline-block;
     background-color: $color-surface;
     border-radius: $radius-sm;
-    animation: pulse 1.6s infinite ease-in-out;
+    animation: pulse 1.5s infinite ease-in-out;
 
     &-text {
       &-short {

@@ -29,8 +29,8 @@ describe('NavigationComponent', () => {
   it('should render two navigation buttons with correct labels', () => {
     const buttons = fixture.debugElement.queryAll(By.css('button[mat-button]'));
     expect(buttons.length).toBe(2);
-    expect(buttons[0].nativeElement.textContent).toContain('📊 Dashboard');
-    expect(buttons[1].nativeElement.textContent).toContain('🎮 Pokémon');
+    expect(buttons[0].nativeElement.textContent).toContain('Dashboard');
+    expect(buttons[1].nativeElement.textContent).toContain('Pokémon');
   });
 
   it('should have correct routerLink paths', () => {

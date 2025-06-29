@@ -1,6 +1,6 @@
 @use 'styles/index' as *;
 
-.skeleton {
+:host {
   height: 400px;
   width: 100%;
   background-color: $color-surface;

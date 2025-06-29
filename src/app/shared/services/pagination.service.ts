@@ -13,7 +13,9 @@ export class PaginationService {
 
   setPage(page: number): void {
     const safePage = Math.max(1, Math.min(this.totalPages, page));
-    this.pageSubject.next(safePage);
+    if (safePage !== this.pageSubject.value) {
+      this.pageSubject.next(safePage);
+    }
   }
 
   nextPage(): void {

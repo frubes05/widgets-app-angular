@@ -11,6 +11,7 @@ import { PaginationComponent } from '@shared/components/pagination/pagination.co
 import { POKEMON_TABLE_COLUMNS } from '@shared/constants';
 import { PaginationSkeletonsComponent } from '../../shared/components/pagination/pagination-skeletons/pagination-skeletons/pagination-skeletons.component';
 import { DataTableComponent } from '../../shared/components/data-table/data-table.component';
+import { distinctUntilChanged } from 'rxjs';
 
 @Component({
   selector: 'awa-pokemon-page',
@@ -41,7 +42,7 @@ export class PokemonPageComponent implements OnInit {
   displayedColumns = POKEMON_TABLE_COLUMNS;
 
   ngOnInit(): void {
-    this.route.queryParamMap.subscribe((params) => {
+    this.route.queryParamMap.pipe(distinctUntilChanged()).subscribe((params) => {
       const pageParam = Number(params.get('page'));
       const requestedPage = isNaN(pageParam) || pageParam < 1 ? 1 : pageParam;
       const maxPage = 10;

@@ -3,22 +3,11 @@ import { PokemonCardComponent } from './pokemon-card.component';
 import { of } from 'rxjs';
 import { By } from '@angular/platform-browser';
 import { PokemonDetails } from '@shared/models';
+import { mockPikachuNormalizedData } from '@shared/testing/mocks';
 
 describe('PokemonCardComponent', () => {
   let fixture: ComponentFixture<PokemonCardComponent>;
   let component: PokemonCardComponent;
-
-  const mockPokemon: PokemonDetails = {
-    id: 25,
-    name: 'pikachu',
-    height: 4,
-    weight: 60,
-    types: ['electric'],
-    image: 'https://example.com/pikachu.png',
-    base_experience: 60,
-    abilities: [],
-    stats: [],
-  };
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
@@ -30,13 +19,13 @@ describe('PokemonCardComponent', () => {
   });
 
   it('should create the pokemon card component', () => {
-    component.pokemon$ = of(mockPokemon);
+    component.pokemon$ = of(mockPikachuNormalizedData);
     fixture.detectChanges();
     expect(component).toBeTruthy();
   });
 
   it('should display the pokemon details when data is available', () => {
-    component.pokemon$ = of(mockPokemon);
+    component.pokemon$ = of(mockPikachuNormalizedData);
     fixture.detectChanges();
 
     const title = fixture.debugElement.query(By.css('.pokemon-card__title')).nativeElement;
@@ -44,7 +33,7 @@ describe('PokemonCardComponent', () => {
     const info = fixture.debugElement.query(By.css('.pokemon-card__info')).nativeElement;
 
     expect(title.textContent).toContain('Pikachu');
-    expect(img.src).toBe(mockPokemon.image);
+    expect(img.src).toContain(mockPikachuNormalizedData.image);
     expect(info.textContent).toContain('Height:4');
     expect(info.textContent).toContain('Weight:60');
 

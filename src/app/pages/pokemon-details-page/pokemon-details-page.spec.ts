@@ -4,28 +4,16 @@ import { ActivatedRoute } from '@angular/router';
 import { of } from 'rxjs';
 import { PokemonFacade } from '@facades/pokemon/pokemon.facade';
 import { Location } from '@angular/common';
-import { PokemonDetails } from '@shared/models';
+import { mockPikachuNormalizedData } from '@shared/testing/mocks';
 
 describe('PokemonDetailsPageComponent', () => {
   let fixture: ComponentFixture<PokemonDetailsPageComponent>;
   let component: PokemonDetailsPageComponent;
   let facadeSpy: jasmine.SpyObj<PokemonFacade>;
 
-  const mockDetails: PokemonDetails = {
-    name: 'pikachu',
-    id: 25,
-    types: ['electric'],
-    height: 4,
-    weight: 60,
-    image: "https://www.pokemon.com/img",
-    base_experience: 60,
-    abilities: [],
-    stats: [],
-  };
-
   beforeEach(async () => {
     facadeSpy = jasmine.createSpyObj('PokemonFacade', ['getPokemon$', 'goToPokemonsTablePage']);
-    facadeSpy.getPokemon$.and.returnValue(of(mockDetails));
+    facadeSpy.getPokemon$.and.returnValue(of(mockPikachuNormalizedData));
 
     await TestBed.configureTestingModule({
       imports: [PokemonDetailsPageComponent],
@@ -56,7 +44,7 @@ describe('PokemonDetailsPageComponent', () => {
   it('should load pokemon details based on route param', (done) => {
     component.pokemon$.subscribe((pokemon) => {
       expect(facadeSpy.getPokemon$).toHaveBeenCalledWith('pikachu');
-      expect(pokemon).toEqual(mockDetails);
+      expect(pokemon).toEqual(mockPikachuNormalizedData);
       done();
     });
   });

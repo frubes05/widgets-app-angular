@@ -2,7 +2,7 @@ import { inject, Injectable } from '@angular/core';
 import { BehaviorSubject, forkJoin, map, Observable, switchMap } from 'rxjs';
 import { HttpService } from '@shared/services';
 import { PokemonDetails, PokemonListItem } from '@shared/models';
-import { mapToPokemonDetails } from '@features/pokemon/utils';
+import { normalizePokemonDetails } from '@features/pokemon/utils';
 
 @Injectable({
   providedIn: 'root',
@@ -28,7 +28,7 @@ export class PokemonInformationService {
         map((res) => res.results),
         map((results) =>
           results.map((r) =>
-            this.httpService.request<any>(r.url).pipe(map(mapToPokemonDetails))
+            this.httpService.request<any>(r.url).pipe(map(normalizePokemonDetails))
           )
         ),
         switchMap((pokemonRequests) => forkJoin(pokemonRequests))
@@ -38,6 +38,6 @@ export class PokemonInformationService {
   getPokemonDetails(name: string): Observable<PokemonDetails> {
     return this.httpService
       .request<any>(`${this.API}/${name}`)
-      .pipe(map(mapToPokemonDetails));
+      .pipe(map(normalizePokemonDetails));
   }
 }

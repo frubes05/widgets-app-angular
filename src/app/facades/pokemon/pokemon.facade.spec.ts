@@ -6,33 +6,17 @@ import { of, BehaviorSubject, take } from 'rxjs';
 import { PokemonInformationService } from '@features/pokemon/services/pokemon-information.service';
 import { PaginationService } from '@shared/services';
 import { PokemonDetails } from '@shared/models';
+import {
+  mockBulbasaurNormalizedData,
+  mockPikachuNormalizedData,
+} from '@shared/testing/mocks';
 
 describe('PokemonFacade', () => {
   let facade: PokemonFacade;
 
   const mockPokemons: PokemonDetails[] = [
-    {
-      id: 1,
-      name: 'bulbasaur',
-      height: 7,
-      weight: 69,
-      types: ['grass', 'poison'],
-      image: 'bulba.png',
-      base_experience: 60,
-      abilities: [],
-      stats: [],
-    },
-    {
-      id: 2,
-      name: 'ivysaur',
-      height: 10,
-      weight: 130,
-      types: ['grass', 'poison'],
-      image: 'ivy.png',
-      base_experience: 90,
-      abilities: [],
-      stats: [],
-    },
+    mockPikachuNormalizedData,
+    mockBulbasaurNormalizedData,
   ];
 
   let loadingSubject: BehaviorSubject<boolean>;
@@ -61,6 +45,7 @@ describe('PokemonFacade', () => {
           loadingSubject: loadingSubject,
         }
       );
+
     pokemonInformationServiceMock.getPokemonPage.and.returnValue(
       of(mockPokemons)
     );

@@ -14,7 +14,7 @@ Cilj zadatka je razvoj Angular aplikacije sa interaktivnim widgetima:
 - [Angular CLI](https://angular.io/cli): v19.2.7
 - TypeScript
 - RxJS
-- [Leaflet](https://leafletjs.com/) ili [OpenLayers](https://openlayers.org/)
+- [Leaflet](https://leafletjs.com/)
 - [Chart.js](https://www.chartjs.org/)
 - [PokéAPI](https://pokeapi.co/)
 
@@ -59,7 +59,7 @@ Aplikacija će biti dostupna na adresi `http://localhost:4200/`.
 
 ## Struktura projekta
 
-![Struktura](assets/code-structure.png)
+![Struktura](public/assets/code-structure.png)
 
 ---
 

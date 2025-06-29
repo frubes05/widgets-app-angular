@@ -1,59 +1,81 @@
-# AngularWidgetsApp
+# Angular Widgets App (AWA)
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 19.2.7.
+Cilj zadatka je razvoj Angular aplikacije sa interaktivnim widgetima:
 
-## Development server
+- Karta s početnom lokacijom Heinzelova 70
+- Lista lokacija
+- Tablični i grafički prikaz podataka
+- Stranica s prikazom podataka sa [PokéAPI](https://pokeapi.co/)
 
-To start a local development server, run:
+---
 
-```bash
-ng serve
-```
+## Korištene tehnologije
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
+- [Angular CLI](https://angular.io/cli): v19.2.7
+- TypeScript
+- RxJS
+- [Leaflet](https://leafletjs.com/) ili [OpenLayers](https://openlayers.org/)
+- [Chart.js](https://www.chartjs.org/)
+- [PokéAPI](https://pokeapi.co/)
 
-## Code scaffolding
+---
 
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
+### Instalacija dependencyja
 
-```bash
-ng generate component component-name
-```
+npm install
 
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
+## Pokretanje aplikacije
 
-```bash
-ng generate --help
-```
+npm start
 
-## Building
+Aplikacija će biti dostupna na adresi `http://localhost:4200/`.
 
-To build the project run:
+---
 
-```bash
-ng build
-```
+## Funkcionalnosti aplikacije
 
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
+### Karta i lista lokacija
 
-## Running unit tests
+- Prikaz početne lokacije: Heinzelova 70 (Zagreb)
+- Lista od 10 lokacija (uzete lokacije kvartova u Zagrebu, ali moze se promijeniti po potrebi)
+- Klikom na lokaciju iz liste mijenja se lokacija markera na karti
 
-To execute unit tests with the [Karma](https://karma-runner.github.io) test runner, use the following command:
+### Prikaz podataka iz datoteke `podaci.json`
 
-```bash
-ng test
-```
+- Učitavanje podataka iz JSON datoteke putem fetcha (simulacija http requesta)
+- Prikaz u tablici: originalni 15-minutni podaci
+- Grafikon izrađen pomoću Chart.js
+- Podaci se transformiraju u satni format uzimanjem prosjeka za svaki sat
 
-## Running end-to-end tests
+### Prikaz podataka s PokéAPI servisa
 
-For end-to-end (e2e) testing, run:
+- Na `/pokemons` ruti dohvaćaju se podaci o Pokémonima (maksimalno 100)
+- Paginacija: prikaz 10 Pokémon-a po stranici
+- Klikom na red u tablici otvara se detaljan prikaz odabranog Pokémona
+- Povratak s detalja vraća korisnika na prethodnu stranicu i isti položaj u paginaciji
+- Podaci uključuju: ID, naziv, visinu, težinu, tip i sliku
 
-```bash
-ng e2e
-```
+---
 
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
+## Struktura projekta
 
-## Additional Resources
+![Struktura](assets/code-structure.png)
 
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+---
+
+## Formatiranje koda
+
+Aplikacija koristi Prettier za automatsko formatiranje koda.
+Konfiguracija se nalazi u `.prettierrc` i `.vscode/settings.json` datotekama.
+
+Za ručno formatiranje pokrenuti: npm run format
+
+---
+
+## Testiranje koda
+
+Aplikacija koristi Karma i Jasmine za testiranje Angular komponenti, servisa, direktiva i ostalih modula.
+
+Za ručno izvršavanje testova: npm run test
+
+---

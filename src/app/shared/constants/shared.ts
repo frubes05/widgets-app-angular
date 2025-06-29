@@ -3,10 +3,11 @@ import { AveragedDataPoint, PokemonDetails } from '@shared/models';
 import { ChartOptions } from 'chart.js';
 import { IconOptions } from 'leaflet';
 
-export const LEAFLET_MAP_ENDPOINT = "https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png";
-export const LOCATIONS_ENDPOINT = "assets/locations/data.json";
-export const CHARTS_ENDPOINT = "assets/timesheet/data.json";
-export const POKEMON_ENDPOINT = "https://pokeapi.co/api/v2/pokemon";
+export const LEAFLET_MAP_ENDPOINT =
+  'https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png';
+export const LOCATIONS_ENDPOINT = 'assets/locations/data.json';
+export const CHARTS_ENDPOINT = 'assets/timesheet/data.json';
+export const POKEMON_ENDPOINT = 'https://pokeapi.co/api/v2/pokemon';
 
 export const POKEMON_COLUMNS = [
   'id',
@@ -44,7 +45,18 @@ export interface ColumnDef<T> {
 }
 
 export const CHART_TABLE_COLUMNS: Array<ColumnDef<AveragedDataPoint>> = [
-  { columnDef: 'time', header: 'Vrijeme', cell: (p) => p.time },
+  {
+    columnDef: 'time',
+    header: 'Vrijeme',
+    cell: (p) =>
+      new Date(p.time).toLocaleString('hr-HR', {
+        day: '2-digit',
+        month: '2-digit',
+        year: 'numeric',
+        hour: '2-digit',
+        minute: '2-digit',
+      }),
+  },
   { columnDef: 'value', header: 'Vrijednost', cell: (p) => p.value },
 ];
 

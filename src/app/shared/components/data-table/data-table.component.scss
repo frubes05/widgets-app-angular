@@ -1,15 +1,18 @@
+@use 'styles/index' as *;
+
 table {
   width: 100%;
-  font-size: 14px;
+  font-size: $font-size-sm;
+
   th {
-    font-weight: bold;
+    font-weight: $font-weight-bold;
   }
 
   .clickable-row {
     cursor: pointer;
 
     &:hover {
-      background-color: #f0f0f0;
+      background-color: $color-surface-alt;
     }
   }
 }

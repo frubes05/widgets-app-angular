@@ -1,23 +1,25 @@
+@use 'styles/index' as *;
+
 .dashboard-wrapper {
-  padding: 16px;
+  padding: $spacing-normal;
   display: flex;
   flex-direction: column;
-  gap: 16px;
+  gap: $spacing-normal;
 }
 
 .chart-card {
-  padding: 16px;
+  padding: $spacing-normal;
 }
 
 .chart-table {
   display: flex;
   flex-direction: row;
-  gap: 16px;
+  gap: $spacing-normal;
   flex-wrap: wrap;
 
   .chart {
     flex: 2;
-    padding: 16px;
+    padding: $spacing-normal;
   }
 
   .table {

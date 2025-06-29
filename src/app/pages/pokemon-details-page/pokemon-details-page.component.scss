@@ -1,8 +1,10 @@
+@use 'styles/index' as *;
+
 .pokemon-details-page-center {
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 2rem;
+  padding: $spacing-xxl;
   min-height: calc(100vh - 128px);
   background-image: url("../../../../public/assets/bg-green-2x-optim.png");
   background-repeat: no-repeat;

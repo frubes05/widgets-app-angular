@@ -1,34 +1,24 @@
+@use 'styles/index' as *;
+
 .table-skeleton {
-  margin-bottom: 1rem;
+  margin-bottom: $spacing-normal;
   width: 100%;
 
   @media (min-width: 768px) {
     width: 600px;
   }
 
-  .skeleton-header-row {
+  .skeleton-header-row, .skeleton-row {
     display: table-row;
     height: 56.5px;
-    background-color: #e0e0e0;
-    border-radius: 4px;
+    background-color: $color-surface;
+    border-radius: $radius-sm;
     animation: pulse 1.5s infinite ease-in-out;
 
     th {
       padding: 0;
       border-bottom: none !important;
     }
-
-    &::before {
-      display: none;
-    }
-  }
-
-  .skeleton-row {
-    display: table-row;
-    height: 56.5px;
-    background-color: #e0e0e0;
-    border-radius: 4px;
-    animation: pulse 1.5s infinite ease-in-out;
 
     td {
       padding: 0;

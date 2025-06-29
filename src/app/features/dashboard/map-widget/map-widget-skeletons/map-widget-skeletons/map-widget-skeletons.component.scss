@@ -1,6 +1,8 @@
+@use 'styles/index' as *;
+
 .skeleton {
-  background-color: #e0e0e0;
-  border-radius: 4px;
+  background-color: $color-surface;
+  border-radius: $radius-sm;
   display: block;
   animation: pulse 1.5s infinite ease-in-out;
 }

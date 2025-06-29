@@ -1,8 +1,11 @@
+@use 'styles/index' as *;
+
 mat-toolbar {
   display: flex;
-  gap: 1rem;
+  gap: $spacing-normal;
 }
+
 .active {
-  font-weight: bold;
+  font-weight: $font-weight-bold;
   text-decoration: underline;
 }

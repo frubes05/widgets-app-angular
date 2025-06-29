@@ -1,8 +1,10 @@
+@use 'styles/index' as *;
+
 .map-locations {
   display: flex;
   flex-direction: column;
-  gap: 1rem;
-  padding: 1rem;
+  gap: $spacing-normal;
+  padding: $spacing-normal;
   flex: 1;
 
   @media (min-width: 768px) {
@@ -14,9 +16,9 @@
 .map-card,
 .location-list-card {
   flex: 1;
-  padding: 1rem;
-  border-radius: 12px;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.5);
+  padding: $spacing-normal;
+  border-radius: $radius-xl;
+  box-shadow: $shadow-elevation-medium;
 }
 
 .map-card {
@@ -25,7 +27,7 @@
   min-height: 400px;
 
   ::ng-deep .leaflet-container {
-    border-radius: 8px;
+    border-radius: $radius-md;
     height: 100%;
     width: 100%;
   }

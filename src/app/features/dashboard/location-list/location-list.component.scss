@@ -1,3 +1,5 @@
+@use 'styles/index' as *;
+
 .location-list {
   padding: 0;
   min-height: 0;
@@ -11,7 +13,7 @@
 
   &::-webkit-scrollbar-thumb {
     background-color: rgba(0, 0, 0, 0.2);
-    border-radius: 4px;
+    border-radius: $radius-sm;
   }
 
   &::-webkit-scrollbar-track {
@@ -22,11 +24,11 @@
     display: flex;
     flex-direction: row;
     align-items: center;
-    gap: 0.75rem;
+    gap: $spacing-sm;
 
-    border-radius: 6px;
-    margin: 0.25rem 0;
-    padding: 0.6rem 0.9rem;
+    border-radius: $radius-md;
+    margin: $spacing-xxs 0;
+    padding: $spacing-xs $spacing-normal;
     transition: background-color 0.2s ease, transform 0.1s ease;
     cursor: pointer;
 
@@ -35,28 +37,28 @@
     }
 
     &.selected {
-      background-color: #e3f2fd;
+      background-color: $color-location-background;
       font-weight: 500;
 
       mat-icon {
-        color: #1976d2;
+        color: $color-primary-dark;
       }
     }
 
     mat-icon {
-      font-size: 20px;
+      font-size: $font-size-md;
       color: rgba(0, 0, 0, 0.54);
     }
 
     h4 {
-      font-size: 0.95rem;
+      font-size: $font-size-base;
       margin: 0;
     }
 
     &-wrapper {
       display: flex;
       justify-content: flex-start;
-      gap: 12px;
+      gap: $spacing-md;
       align-items: center;
     }
   }

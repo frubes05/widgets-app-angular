@@ -1,1 +1,1 @@
-export * from "@shared/constants/table-columns";
+export * from "@shared/constants/shared";

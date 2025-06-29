@@ -23,6 +23,6 @@ describe('MapWidgetSkeletonsComponent', () => {
 
   it('should render skeleton template', () => {
     const compiled = fixture.nativeElement as HTMLElement;
-    expect(compiled.querySelector('.map-skeleton')).toBeTruthy();
+    expect(compiled.querySelector('.skeleton')).toBeTruthy();
   });
 });

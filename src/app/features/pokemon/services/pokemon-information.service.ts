@@ -3,12 +3,12 @@ import { BehaviorSubject, forkJoin, map, Observable, switchMap } from 'rxjs';
 import { HttpService } from '@shared/services';
 import { PokemonDetails, PokemonListItem } from '@shared/models';
 import { normalizePokemonDetails } from '@features/pokemon/utils';
+import { POKEMON_ENDPOINT } from '@shared/constants';
 
 @Injectable({
   providedIn: 'root',
 })
 export class PokemonInformationService {
-  private readonly API = 'https://pokeapi.co/api/v2/pokemon';
   private readonly httpService = inject(HttpService);
 
   pokemonsSubject = new BehaviorSubject<PokemonDetails[]>([]);
@@ -22,7 +22,7 @@ export class PokemonInformationService {
 
     return this.httpService
       .request<{ results: PokemonListItem[] }>(
-        `${this.API}?offset=${offset}&limit=10`
+        `${POKEMON_ENDPOINT}?offset=${offset}&limit=10`
       )
       .pipe(
         map((res) => res.results),
@@ -37,7 +37,7 @@ export class PokemonInformationService {
 
   getPokemonDetails(name: string): Observable<PokemonDetails> {
     return this.httpService
-      .request<any>(`${this.API}/${name}`)
+      .request<any>(`${POKEMON_ENDPOINT}/${name}`)
       .pipe(map(normalizePokemonDetails));
   }
 }

@@ -24,7 +24,7 @@ describe('LocationListComponent', () => {
 
   it('should render all locations', () => {
     fixture.detectChanges();
-    const items = fixture.debugElement.queryAll(By.css('.location-item'));
+    const items = fixture.debugElement.queryAll(By.css('.location-list__item'));
     expect(items.length).toBe(2);
     expect(items[0].nativeElement.textContent).toContain('Paris');
     expect(items[1].nativeElement.textContent).toContain('Tokyo');
@@ -34,7 +34,7 @@ describe('LocationListComponent', () => {
     component.selectedLocation = mockLocationsData[1];
     fixture.detectChanges();
 
-    const selectedItem = fixture.debugElement.query(By.css('.location-item.selected'));
+    const selectedItem = fixture.debugElement.query(By.css('.location-list__item.selected'));
     expect(selectedItem).not.toBeNull();
     expect(selectedItem.nativeElement.textContent).toContain('Tokyo');
   });
@@ -43,7 +43,7 @@ describe('LocationListComponent', () => {
     spyOn(component.selectLocation, 'emit');
     fixture.detectChanges();
 
-    const item = fixture.debugElement.queryAll(By.css('.location-item'))[1];
+    const item = fixture.debugElement.queryAll(By.css('.location-list__item'))[1];
     item.triggerEventHandler('click', null);
 
     expect(component.selectLocation.emit).toHaveBeenCalledOnceWith(mockLocationsData[1]);

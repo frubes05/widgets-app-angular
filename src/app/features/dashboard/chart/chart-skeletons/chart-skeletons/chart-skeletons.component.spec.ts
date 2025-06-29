@@ -23,8 +23,7 @@ describe('ChartSkeletonsComponent', () => {
   });
 
   it('should render the chart skeleton div', () => {
-    const skeletonDiv = fixture.debugElement.query(By.css('.chart-skeleton'));
+    const skeletonDiv = fixture.debugElement.query(By.css('.skeleton'));
     expect(skeletonDiv).toBeTruthy();
-    expect(skeletonDiv.nativeElement.classList).toContain('skeleton');
   });
 });

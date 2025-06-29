@@ -4,7 +4,7 @@ import { LocationModel } from '@shared/models';
 import { LEAFLET_MAP_ENDPOINT, MAP_OPTIONS } from '@shared/constants';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class MapService {
   private map: L.Map | null = null;

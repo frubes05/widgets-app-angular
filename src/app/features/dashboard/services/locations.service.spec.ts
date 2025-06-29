@@ -12,10 +12,7 @@ describe('LocationsService', () => {
     httpServiceMock = jasmine.createSpyObj('HttpService', ['request']);
 
     TestBed.configureTestingModule({
-      providers: [
-        LocationsService,
-        { provide: HttpService, useValue: httpServiceMock }
-      ]
+      providers: [LocationsService, { provide: HttpService, useValue: httpServiceMock }],
     });
 
     service = TestBed.inject(LocationsService);

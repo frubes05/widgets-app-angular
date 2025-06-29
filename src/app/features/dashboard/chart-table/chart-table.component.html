@@ -2,17 +2,21 @@
   <div class="chart-table__row">
     <mat-card class="chart-table__container chart-table__container--chart">
       @if (chartData$ | async; as chartData) {
-      <awa-chart [chartData]="chartData" [chartOptions]="chartOptions" />
+        <awa-chart [chartData]="chartData" [chartOptions]="chartOptions" />
       } @else {
-      <awa-chart-skeletons />
+        <awa-chart-skeletons />
       }
     </mat-card>
 
     <mat-card class="chart-table__container chart-table__container--table">
       @if (tableData$ | async; as tableData) {
-      <awa-data-table [data]="tableData" [displayedColumns]="displayedColumns" [isClickable]="false" />
+        <awa-data-table
+          [data]="tableData"
+          [displayedColumns]="displayedColumns"
+          [isClickable]="false"
+        />
       } @else {
-      <awa-data-table-skeleton [rowsLength]="6" [columns]="displayedColumns" />
+        <awa-data-table-skeleton [rowsLength]="6" [columns]="displayedColumns" />
       }
     </mat-card>
   </div>

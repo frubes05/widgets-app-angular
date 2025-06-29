@@ -1,4 +1,4 @@
-import { PokemonDetails } from "@shared/models";
+import { PokemonDetails } from '@shared/models';
 
 export const normalizePokemonDetails = (pokemon: any): PokemonDetails => {
   return {
@@ -12,7 +12,7 @@ export const normalizePokemonDetails = (pokemon: any): PokemonDetails => {
     abilities: pokemon.abilities.map((a: any) => a.ability.name),
     stats: pokemon.stats.map((s: any) => ({
       name: s.stat.name,
-      value: s.base_stat
-    }))
+      value: s.base_stat,
+    })),
   };
-}
+};

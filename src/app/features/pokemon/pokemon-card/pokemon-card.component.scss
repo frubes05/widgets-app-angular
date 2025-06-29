@@ -104,22 +104,54 @@
     font-weight: $font-weight-bold;
     text-transform: uppercase;
 
-    &.type--grass    { background-color: $color-type-grass; }
-    &.type--poison   { background-color: $color-type-poison; }
-    &.type--fire     { background-color: $color-type-fire; }
-    &.type--water    { background-color: $color-type-water; }
-    &.type--flying   { background-color: $color-type-flying; }
-    &.type--normal   { background-color: $color-type-normal; }
-    &.type--ground   { background-color: $color-type-ground; }
-    &.type--bug      { background-color: $color-type-bug; }
-    &.type--ghost    { background-color: $color-type-ghost; }
-    &.type--electric { background-color: $color-type-electric; }
-    &.type--psychic  { background-color: $color-type-psychic; }
-    &.type--rock     { background-color: $color-type-rock; }
-    &.type--fighting { background-color: $color-type-rock; }
-    &.type--fairy    { background-color: $color-type-fairy; }
-    &.type--steel    { background-color: $color-type-steel; }
-    &.type--ice      { background-color: $color-type-ice; }
+    &.type--grass {
+      background-color: $color-type-grass;
+    }
+    &.type--poison {
+      background-color: $color-type-poison;
+    }
+    &.type--fire {
+      background-color: $color-type-fire;
+    }
+    &.type--water {
+      background-color: $color-type-water;
+    }
+    &.type--flying {
+      background-color: $color-type-flying;
+    }
+    &.type--normal {
+      background-color: $color-type-normal;
+    }
+    &.type--ground {
+      background-color: $color-type-ground;
+    }
+    &.type--bug {
+      background-color: $color-type-bug;
+    }
+    &.type--ghost {
+      background-color: $color-type-ghost;
+    }
+    &.type--electric {
+      background-color: $color-type-electric;
+    }
+    &.type--psychic {
+      background-color: $color-type-psychic;
+    }
+    &.type--rock {
+      background-color: $color-type-rock;
+    }
+    &.type--fighting {
+      background-color: $color-type-rock;
+    }
+    &.type--fairy {
+      background-color: $color-type-fairy;
+    }
+    &.type--steel {
+      background-color: $color-type-steel;
+    }
+    &.type--ice {
+      background-color: $color-type-ice;
+    }
   }
 
   &__stats {

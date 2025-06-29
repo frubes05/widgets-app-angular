@@ -6,11 +6,11 @@ import { MatCardModule } from '@angular/material/card';
 import { PokemonFacade } from '@facades/pokemon/pokemon.facade';
 import { ActivatedRoute, Router } from '@angular/router';
 import { CommonModule } from '@angular/common';
-import { DataTableSkeletonComponent } from "@shared/components/data-table/data-table-skeletons/data-table-skeletons.component";
-import { PaginationComponent } from "@shared/components/pagination/pagination.component";
-import { POKEMON_TABLE_COLUMNS } from "@shared/constants";
-import { PaginationSkeletonsComponent } from "../../shared/components/pagination/pagination-skeletons/pagination-skeletons/pagination-skeletons.component";
-import { DataTableComponent } from "../../shared/components/data-table/data-table.component";
+import { DataTableSkeletonComponent } from '@shared/components/data-table/data-table-skeletons/data-table-skeletons.component';
+import { PaginationComponent } from '@shared/components/pagination/pagination.component';
+import { POKEMON_TABLE_COLUMNS } from '@shared/constants';
+import { PaginationSkeletonsComponent } from '../../shared/components/pagination/pagination-skeletons/pagination-skeletons/pagination-skeletons.component';
+import { DataTableComponent } from '../../shared/components/data-table/data-table.component';
 
 @Component({
   selector: 'awa-pokemon-page',
@@ -24,13 +24,12 @@ import { DataTableComponent } from "../../shared/components/data-table/data-tabl
     DataTableSkeletonComponent,
     PaginationComponent,
     PaginationSkeletonsComponent,
-    DataTableComponent
-],
+    DataTableComponent,
+  ],
   templateUrl: './pokemon-page.component.html',
   styleUrls: ['./pokemon-page.component.scss'],
-  changeDetection: ChangeDetectionStrategy.OnPush
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
-
 export class PokemonPageComponent implements OnInit {
   private readonly pokemonFacade = inject(PokemonFacade);
   private readonly router = inject(Router);

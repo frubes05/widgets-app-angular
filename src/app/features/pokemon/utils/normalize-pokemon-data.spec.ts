@@ -12,8 +12,7 @@ describe('normalizePokemonDetails', () => {
         weight: 60,
         base_experience: 60,
         types: ['electric'],
-        image:
-          'pikachu.png',
+        image: 'pikachu.png',
         abilities: [],
         stats: [],
       };

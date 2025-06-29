@@ -9,7 +9,7 @@ import { PaginationService } from '@shared/services';
   standalone: true,
   imports: [CommonModule, MatButtonModule, MatIconModule],
   templateUrl: './pagination.component.html',
-  styleUrls: ['./pagination.component.scss']
+  styleUrls: ['./pagination.component.scss'],
 })
 export class PaginationComponent {
   private readonly pagination = inject(PaginationService);

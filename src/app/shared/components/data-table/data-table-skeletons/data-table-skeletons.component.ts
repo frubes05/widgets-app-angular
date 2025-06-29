@@ -8,7 +8,7 @@ import { RepeatDirective } from '@shared/directives';
   standalone: true,
   imports: [MatTableModule, RepeatDirective],
   templateUrl: './data-table-skeletons.component.html',
-  styleUrl: './data-table-skeletons.component.scss'
+  styleUrl: './data-table-skeletons.component.scss',
 })
 export class DataTableSkeletonComponent<T = any> {
   @Input() rowsLength!: number;
@@ -19,6 +19,6 @@ export class DataTableSkeletonComponent<T = any> {
   }
 
   get columnIds(): string[] {
-    return this.columns.map(col => col.columnDef);
+    return this.columns.map((col) => col.columnDef);
   }
 }

@@ -14,7 +14,7 @@ export class RepeatDirective {
     for (let i = 0; i < times; i++) {
       this.viewContainer.createEmbeddedView(this.templateRef, {
         $implicit: i,
-        index: i
+        index: i,
       });
     }
   }

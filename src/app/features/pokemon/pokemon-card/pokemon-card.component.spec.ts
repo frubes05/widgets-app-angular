@@ -10,7 +10,7 @@ describe('PokemonCardComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [PokemonCardComponent]
+      imports: [PokemonCardComponent],
     }).compileComponents();
 
     fixture = TestBed.createComponent(PokemonCardComponent);
@@ -35,7 +35,6 @@ describe('PokemonCardComponent', () => {
     expect(img.src).toContain(mockPikachuNormalizedData.image);
     expect(info.textContent).toContain('Height:4');
     expect(info.textContent).toContain('Weight:60');
-
   });
 
   it('should show skeleton loader if pokemon is null', () => {

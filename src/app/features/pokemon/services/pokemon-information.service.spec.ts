@@ -17,10 +17,7 @@ describe('PokemonInformationService', () => {
     httpServiceSpy = jasmine.createSpyObj('HttpService', ['request']);
 
     TestBed.configureTestingModule({
-      providers: [
-        PokemonInformationService,
-        { provide: HttpService, useValue: httpServiceSpy },
-      ],
+      providers: [PokemonInformationService, { provide: HttpService, useValue: httpServiceSpy }],
     });
 
     service = TestBed.inject(PokemonInformationService);
@@ -88,25 +85,23 @@ describe('PokemonInformationService', () => {
     it('should fetch pokemon details by name', (done) => {
       httpServiceSpy.request.and.returnValue(of(mockCharizardApiResponse));
 
-      service
-        .getPokemonDetails('charizard')
-        .subscribe((details: PokemonDetails) => {
-          expect(httpServiceSpy.request).toHaveBeenCalledWith(
-            'https://pokeapi.co/api/v2/pokemon/charizard'
-          );
-          expect(details).toEqual({
-            id: 6,
-            name: 'charizard',
-            height: 17,
-            weight: 905,
-            types: ['fire', 'flying'],
-            image: 'charizard.png',
-            base_experience: 60,
-            abilities: [],
-            stats: [],
-          });
-          done();
+      service.getPokemonDetails('charizard').subscribe((details: PokemonDetails) => {
+        expect(httpServiceSpy.request).toHaveBeenCalledWith(
+          'https://pokeapi.co/api/v2/pokemon/charizard'
+        );
+        expect(details).toEqual({
+          id: 6,
+          name: 'charizard',
+          height: 17,
+          weight: 905,
+          types: ['fire', 'flying'],
+          image: 'charizard.png',
+          base_experience: 60,
+          abilities: [],
+          stats: [],
         });
+        done();
+      });
     });
   });
 });

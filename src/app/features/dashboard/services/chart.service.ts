@@ -12,8 +12,6 @@ export class ChartService {
   private readonly httpService = inject(HttpService);
 
   getHourlyAveragedData(): Observable<AveragedDataPoint[]> {
-    return this.httpService.request<HourlyDataMap>(CHARTS_ENDPOINT).pipe(
-      map(normalizeChartData)
-    );
+    return this.httpService.request<HourlyDataMap>(CHARTS_ENDPOINT).pipe(map(normalizeChartData));
   }
 }

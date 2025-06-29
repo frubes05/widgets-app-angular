@@ -9,6 +9,6 @@ import { RouterModule } from '@angular/router';
   imports: [RouterModule, MatToolbarModule, MatButtonModule],
   templateUrl: './navigation.component.html',
   styleUrl: './navigation.component.scss',
-  changeDetection: ChangeDetectionStrategy.OnPush
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class NavigationComponent {}

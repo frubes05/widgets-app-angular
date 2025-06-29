@@ -25,9 +25,7 @@ export class PokemonFacade {
       switchMap((page) =>
         this.pokemonInformationService
           .getPokemonPage(page)
-          .pipe(
-            tap(() => this.pokemonInformationService.loadingSubject.next(false))
-          )
+          .pipe(tap(() => this.pokemonInformationService.loadingSubject.next(false)))
       )
     );
   }

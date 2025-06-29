@@ -3,20 +3,12 @@ import { AveragedDataPoint, PokemonDetails } from '@shared/models';
 import { ChartOptions } from 'chart.js';
 import { IconOptions } from 'leaflet';
 
-export const LEAFLET_MAP_ENDPOINT =
-  'https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png';
+export const LEAFLET_MAP_ENDPOINT = 'https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png';
 export const LOCATIONS_ENDPOINT = 'assets/locations/data.json';
 export const CHARTS_ENDPOINT = 'assets/timesheet/data.json';
 export const POKEMON_ENDPOINT = 'https://pokeapi.co/api/v2/pokemon';
 
-export const POKEMON_COLUMNS = [
-  'id',
-  'name',
-  'height',
-  'weight',
-  'types',
-  'image',
-];
+export const POKEMON_COLUMNS = ['id', 'name', 'height', 'weight', 'types', 'image'];
 export const CHART_COLUMNS = ['time', 'value'];
 
 export const CHART_OPTIONS: ChartOptions = {

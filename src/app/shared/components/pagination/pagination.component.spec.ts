@@ -22,9 +22,7 @@ describe('PaginationComponent', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       imports: [PaginationComponent],
-      providers: [
-        { provide: PaginationService, useValue: paginationServiceMock }
-      ]
+      providers: [{ provide: PaginationService, useValue: paginationServiceMock }],
     }).compileComponents();
 
     fixture = TestBed.createComponent(PaginationComponent);

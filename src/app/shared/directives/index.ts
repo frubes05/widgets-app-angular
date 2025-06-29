@@ -1,1 +1,1 @@
-export * from "@shared/directives/repeat/repeat.directive"
+export * from '@shared/directives/repeat/repeat.directive';

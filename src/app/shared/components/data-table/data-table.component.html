@@ -1,28 +1,28 @@
 @if (data.length) {
   <div class="table-wrapper">
-<table mat-table [dataSource]="data" class="mat-elevation-z8">
-  @for (col of displayedColumns; track col) {
-  <ng-container [matColumnDef]="col.columnDef">
-    <th mat-header-cell *matHeaderCellDef>{{ col.header }}</th>
-    <td mat-cell *matCellDef="let row">
-      @if (col.isImage) {
-      <img [src]="col.cell(row)" width="50" height="50" alt="img" />
-      } @else {
-      {{ col.cell(row) }}
+    <table mat-table [dataSource]="data" class="mat-elevation-z8">
+      @for (col of displayedColumns; track col) {
+        <ng-container [matColumnDef]="col.columnDef">
+          <th mat-header-cell *matHeaderCellDef>{{ col.header }}</th>
+          <td mat-cell *matCellDef="let row">
+            @if (col.isImage) {
+              <img [src]="col.cell(row)" width="50" height="50" alt="img" />
+            } @else {
+              {{ col.cell(row) }}
+            }
+          </td>
+        </ng-container>
       }
-    </td>
-  </ng-container>
-  }
 
-  <tr mat-header-row *matHeaderRowDef="displayedColumnIds"></tr>
-  <tr
-    mat-row
-    *matRowDef="let row; columns: displayedColumnIds"
-    (click)="isClickable ? onRowClick(row) : null"
-    (keydown.enter)="$event.preventDefault()"
-    tabindex="0"
-    [class]="isClickable ? 'clickable-row' : ''"
-  ></tr>
-</table>
-</div>
+      <tr mat-header-row *matHeaderRowDef="displayedColumnIds"></tr>
+      <tr
+        mat-row
+        *matRowDef="let row; columns: displayedColumnIds"
+        (click)="isClickable ? onRowClick(row) : null"
+        (keydown.enter)="$event.preventDefault()"
+        tabindex="0"
+        [class]="isClickable ? 'clickable-row' : ''"
+      ></tr>
+    </table>
+  </div>
 }

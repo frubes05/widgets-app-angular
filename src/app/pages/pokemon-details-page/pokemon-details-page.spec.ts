@@ -22,14 +22,14 @@ describe('PokemonDetailsPageComponent', () => {
         {
           provide: ActivatedRoute,
           useValue: {
-            paramMap: of(new Map([['name', 'pikachu']]))
-          }
+            paramMap: of(new Map([['name', 'pikachu']])),
+          },
         },
         {
           provide: Location,
-          useValue: { back: jasmine.createSpy('back') }
-        }
-      ]
+          useValue: { back: jasmine.createSpy('back') },
+        },
+      ],
     }).compileComponents();
 
     fixture = TestBed.createComponent(PokemonDetailsPageComponent);

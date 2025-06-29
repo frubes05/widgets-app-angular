@@ -6,7 +6,7 @@ describe('CacheService', () => {
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      providers: [CacheService]
+      providers: [CacheService],
     });
     service = TestBed.inject(CacheService);
   });

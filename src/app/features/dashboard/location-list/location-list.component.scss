@@ -29,7 +29,9 @@
     border-radius: $radius-md;
     margin: $spacing-xxs 0;
     padding: $spacing-xs $spacing-normal;
-    transition: background-color 0.2s ease, transform 0.1s ease;
+    transition:
+      background-color 0.2s ease,
+      transform 0.1s ease;
     cursor: pointer;
 
     &:hover {

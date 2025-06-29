@@ -1,9 +1,4 @@
-import {
-  AveragedDataPoint,
-  ChartDisplayData,
-  HourlyDataMap,
-  LocationModel,
-} from '@shared/models';
+import { AveragedDataPoint, ChartDisplayData, HourlyDataMap, LocationModel } from '@shared/models';
 import { ChartOptions } from 'chart.js';
 
 export const mockDataTableData: AveragedDataPoint[] = [

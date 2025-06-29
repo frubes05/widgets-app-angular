@@ -21,9 +21,7 @@ export class PokemonInformationService {
     const offset = (page - 1) * 10;
 
     return this.httpService
-      .request<{ results: PokemonListItem[] }>(
-        `${POKEMON_ENDPOINT}?offset=${offset}&limit=10`
-      )
+      .request<{ results: PokemonListItem[] }>(`${POKEMON_ENDPOINT}?offset=${offset}&limit=10`)
       .pipe(
         map((res) => res.results),
         map((results) =>

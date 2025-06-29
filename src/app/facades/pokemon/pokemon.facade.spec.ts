@@ -6,18 +6,12 @@ import { of, BehaviorSubject, take } from 'rxjs';
 import { PokemonInformationService } from '@features/pokemon/services';
 import { PaginationService } from '@shared/services';
 import { PokemonDetails } from '@shared/models';
-import {
-  mockBulbasaurNormalizedData,
-  mockPikachuNormalizedData,
-} from '@shared/testing/mocks';
+import { mockBulbasaurNormalizedData, mockPikachuNormalizedData } from '@shared/testing/mocks';
 
 describe('PokemonFacade', () => {
   let facade: PokemonFacade;
 
-  const mockPokemons: PokemonDetails[] = [
-    mockPikachuNormalizedData,
-    mockBulbasaurNormalizedData,
-  ];
+  const mockPokemons: PokemonDetails[] = [mockPikachuNormalizedData, mockBulbasaurNormalizedData];
 
   let loadingSubject: BehaviorSubject<boolean>;
   let pageSubject: BehaviorSubject<number>;
@@ -36,22 +30,17 @@ describe('PokemonFacade', () => {
       { page$: pageSubject.asObservable() }
     );
 
-    pokemonInformationServiceMock =
-      jasmine.createSpyObj<PokemonInformationService>(
-        'PokemonInformationService',
-        ['getPokemonPage', 'getPokemonDetails'],
-        {
-          loading$: loadingSubject.asObservable(),
-          loadingSubject: loadingSubject,
-        }
-      );
+    pokemonInformationServiceMock = jasmine.createSpyObj<PokemonInformationService>(
+      'PokemonInformationService',
+      ['getPokemonPage', 'getPokemonDetails'],
+      {
+        loading$: loadingSubject.asObservable(),
+        loadingSubject: loadingSubject,
+      }
+    );
 
-    pokemonInformationServiceMock.getPokemonPage.and.returnValue(
-      of(mockPokemons)
-    );
-    pokemonInformationServiceMock.getPokemonDetails.and.returnValue(
-      of(mockPokemons[0])
-    );
+    pokemonInformationServiceMock.getPokemonPage.and.returnValue(of(mockPokemons));
+    pokemonInformationServiceMock.getPokemonDetails.and.returnValue(of(mockPokemons[0]));
 
     locationMock = jasmine.createSpyObj<Location>('Location', ['back']);
 
@@ -103,9 +92,7 @@ describe('PokemonFacade', () => {
   it('should return observable from getPokemon$', (done) => {
     facade.getPokemon$('bulbasaur').subscribe((pokemon) => {
       expect(pokemon).toEqual(mockPokemons[0]);
-      expect(
-        pokemonInformationServiceMock.getPokemonDetails
-      ).toHaveBeenCalledWith('bulbasaur');
+      expect(pokemonInformationServiceMock.getPokemonDetails).toHaveBeenCalledWith('bulbasaur');
       done();
     });
   });

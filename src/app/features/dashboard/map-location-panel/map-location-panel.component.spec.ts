@@ -11,7 +11,7 @@ describe('MapLocationPanelComponent', () => {
   let fixture: ComponentFixture<MapLocationPanelComponent>;
   let facadeSpy: jasmine.SpyObj<DashboardFacade>;
 
-  const mockLocations = mockLocationsData
+  const mockLocations = mockLocationsData;
   const selectedLocation = mockLocationsData[1];
 
   beforeEach(async () => {

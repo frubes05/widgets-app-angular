@@ -17,8 +17,8 @@ import { LocationListSkeletonsComponent } from '@features/dashboard/location-lis
     MapWidgetComponent,
     LocationListComponent,
     MapWidgetSkeletonsComponent,
-    LocationListSkeletonsComponent
-],
+    LocationListSkeletonsComponent,
+  ],
   templateUrl: './map-location-panel.component.html',
   styleUrl: './map-location-panel.component.scss',
 })
@@ -27,7 +27,5 @@ export class MapLocationPanelComponent {
 
   readonly locations = this.dashboardFacade.locations$;
   readonly selectedLocation = this.dashboardFacade.selectedLocation$;
-  onLocationSelect = this.dashboardFacade.selectLocation.bind(
-    this.dashboardFacade
-  );
+  onLocationSelect = this.dashboardFacade.selectLocation.bind(this.dashboardFacade);
 }

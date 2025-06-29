@@ -4,6 +4,6 @@ import { Component } from '@angular/core';
   selector: 'awa-chart-skeletons',
   imports: [],
   templateUrl: './chart-skeletons.component.html',
-  styleUrl: './chart-skeletons.component.scss'
+  styleUrl: './chart-skeletons.component.scss',
 })
 export class ChartSkeletonsComponent {}

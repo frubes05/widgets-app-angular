@@ -14,7 +14,7 @@ describe('PokemonPageComponent', () => {
   beforeEach(async () => {
     facadeSpy = jasmine.createSpyObj('PokemonFacade', ['loadPokemons'], {
       pokemons$: of([]),
-      loading$: of(false)
+      loading$: of(false),
     });
 
     routerSpy = jasmine.createSpyObj('Router', ['navigate']);
@@ -26,11 +26,11 @@ describe('PokemonPageComponent', () => {
         {
           provide: ActivatedRoute,
           useValue: {
-            queryParamMap: of(new Map([['page', '3']]))
-          }
+            queryParamMap: of(new Map([['page', '3']])),
+          },
         },
-        { provide: Router, useValue: routerSpy }
-      ]
+        { provide: Router, useValue: routerSpy },
+      ],
     }).compileComponents();
 
     fixture = TestBed.createComponent(PokemonPageComponent);

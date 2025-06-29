@@ -17,20 +17,20 @@ describe('MapService', () => {
   let tileLayerAddToSpy: jasmine.Spy;
 
   beforeEach(() => {
-  markerSpy = jasmine.createSpyObj('Marker', ['setLatLng', 'addTo']);
-  markerSpy.addTo.and.returnValue(markerSpy);
+    markerSpy = jasmine.createSpyObj('Marker', ['setLatLng', 'addTo']);
+    markerSpy.addTo.and.returnValue(markerSpy);
 
-  mapSpy = jasmine.createSpyObj('Map', ['setView']);
+    mapSpy = jasmine.createSpyObj('Map', ['setView']);
 
-  tileLayerAddToSpy = jasmine.createSpy('addTo').and.returnValue(mapSpy);
+    tileLayerAddToSpy = jasmine.createSpy('addTo').and.returnValue(mapSpy);
 
-  spyOn(L, 'map').and.returnValue(mapSpy);
-  spyOn(L, 'tileLayer').and.returnValue({ addTo: tileLayerAddToSpy } as any);
-  spyOn(L, 'marker').and.returnValue(markerSpy);
+    spyOn(L, 'map').and.returnValue(mapSpy);
+    spyOn(L, 'tileLayer').and.returnValue({ addTo: tileLayerAddToSpy } as any);
+    spyOn(L, 'marker').and.returnValue(markerSpy);
 
-  TestBed.configureTestingModule({});
-  service = TestBed.inject(MapService);
-});
+    TestBed.configureTestingModule({});
+    service = TestBed.inject(MapService);
+  });
 
   it('should be created', () => {
     expect(service).toBeTruthy();
@@ -42,15 +42,9 @@ describe('MapService', () => {
     service.initMap(container, location);
 
     expect(L.map).toHaveBeenCalledWith(container);
-    expect(mapSpy.setView).toHaveBeenCalledWith(
-      [location.lat, location.lng],
-      13
-    );
+    expect(mapSpy.setView).toHaveBeenCalledWith([location.lat, location.lng], 13);
     expect(L.tileLayer).toHaveBeenCalled();
-    expect(L.marker).toHaveBeenCalledWith(
-      [location.lat, location.lng],
-      jasmine.any(Object)
-    );
+    expect(L.marker).toHaveBeenCalledWith([location.lat, location.lng], jasmine.any(Object));
     expect(markerSpy.addTo).toHaveBeenCalledTimes(1);
   });
 
@@ -60,14 +54,8 @@ describe('MapService', () => {
 
     service.updateLocation(location);
 
-    expect(markerSpy.setLatLng).toHaveBeenCalledWith([
-      location.lat,
-      location.lng,
-    ]);
-    expect(mapSpy.setView).toHaveBeenCalledWith(
-      [location.lat, location.lng],
-      13
-    );
+    expect(markerSpy.setLatLng).toHaveBeenCalledWith([location.lat, location.lng]);
+    expect(mapSpy.setView).toHaveBeenCalledWith([location.lat, location.lng], 13);
   });
 
   it('should not throw if map or marker is not initialized', () => {

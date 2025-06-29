@@ -10,10 +10,7 @@ describe('MapWidgetComponent', () => {
   let dashboardFacadeMock: jasmine.SpyObj<DashboardFacade>;
 
   beforeEach(async () => {
-    dashboardFacadeMock = jasmine.createSpyObj('DashboardFacade', [
-      'initMap',
-      'updateMapLocation',
-    ]);
+    dashboardFacadeMock = jasmine.createSpyObj('DashboardFacade', ['initMap', 'updateMapLocation']);
 
     await TestBed.configureTestingModule({
       imports: [MapWidgetComponent],

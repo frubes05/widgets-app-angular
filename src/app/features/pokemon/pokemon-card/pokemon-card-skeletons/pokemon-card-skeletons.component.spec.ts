@@ -7,7 +7,7 @@ describe('PokemonCardSkeletonsComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [PokemonCardSkeletonsComponent]
+      imports: [PokemonCardSkeletonsComponent],
     }).compileComponents();
 
     fixture = TestBed.createComponent(PokemonCardSkeletonsComponent);

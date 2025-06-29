@@ -9,17 +9,11 @@ import { ChartDisplayData } from '@shared/models';
 @Component({
   selector: 'awa-chart',
   standalone: true,
-  imports: [
-    CommonModule,
-    MatCardModule,
-    MatTableModule,
-    NgChartsModule,
-  ],
+  imports: [CommonModule, MatCardModule, MatTableModule, NgChartsModule],
   templateUrl: './chart.component.html',
   styleUrls: ['./chart.component.scss'],
-  changeDetection: ChangeDetectionStrategy.OnPush
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
-
 export class ChartComponent {
   @Input() chartData!: ChartDisplayData;
   @Input() chartOptions!: ChartOptions;

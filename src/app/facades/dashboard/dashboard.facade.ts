@@ -34,9 +34,7 @@ export class DashboardFacade {
     return this.chartService.getHourlyAveragedData().pipe(
       filter((points) => !!points?.length),
       map((points) => ({
-        labels: points.map(
-          (p) => this.datePipe.transform(p.time, 'dd.MM.yyyy. HH:mm') ?? ''
-        ),
+        labels: points.map((p) => this.datePipe.transform(p.time, 'dd.MM.yyyy. HH:mm') ?? ''),
         datasets: [
           {
             label: 'Vrijednost',

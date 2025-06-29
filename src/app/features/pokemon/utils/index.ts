@@ -1,1 +1,1 @@
-export * from "@features/pokemon/utils/normalize-pokemon-data";
+export * from '@features/pokemon/utils/normalize-pokemon-data';

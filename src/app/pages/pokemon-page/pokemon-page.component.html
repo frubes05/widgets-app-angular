@@ -1,21 +1,19 @@
 <section class="pokemon-page__center">
   <mat-card class="pokemon-page">
     @if (pokemons$ | async; as pokemons) {
-    <awa-data-table
-      [data]="pokemons"
-      [displayedColumns]="displayedColumns"
-      (rowClick)="goToPokemonDetails($event.name)"
-      [isClickable]="true"
-    />
+      <awa-data-table
+        [data]="pokemons"
+        [displayedColumns]="displayedColumns"
+        (rowClick)="goToPokemonDetails($event.name)"
+        [isClickable]="true"
+      />
 
-    <div class="pokemon-page__pagination">
-      <awa-pagination
-        (pageChange)="loadNextPokemonBatch($event)"
-      ></awa-pagination>
-    </div>
+      <div class="pokemon-page__pagination">
+        <awa-pagination (pageChange)="loadNextPokemonBatch($event)"></awa-pagination>
+      </div>
     } @else {
-    <awa-data-table-skeleton [rowsLength]="10" [columns]="displayedColumns" />
-    <awa-pagination-skeletons />
+      <awa-data-table-skeleton [rowsLength]="10" [columns]="displayedColumns" />
+      <awa-pagination-skeletons />
     }
   </mat-card>
 </section>

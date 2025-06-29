@@ -43,8 +43,6 @@ describe('ChartTableComponent', () => {
 
   it('should bind displayedColumns to table', () => {
     const table = fixture.debugElement.query(By.directive(DataTableComponent));
-    expect(table.componentInstance.displayedColumns).toEqual(
-      component.displayedColumns
-    );
+    expect(table.componentInstance.displayedColumns).toEqual(component.displayedColumns);
   });
 });

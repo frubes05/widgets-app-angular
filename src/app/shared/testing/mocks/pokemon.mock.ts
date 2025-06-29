@@ -90,7 +90,6 @@ export const mockCharizardApiResponse: PokemonApiResponse = {
   stats: [],
 };
 
-
 export const mockPikachuNormalizedData: PokemonDetails = {
   name: 'pikachu',
   id: 25,

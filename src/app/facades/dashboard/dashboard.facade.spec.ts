@@ -12,16 +12,9 @@ describe('DashboardFacade', () => {
   let mapService: jasmine.SpyObj<MapService>;
 
   beforeEach(() => {
-    locationsService = jasmine.createSpyObj('LocationsService', [
-      'getLocations',
-    ]);
-    chartService = jasmine.createSpyObj('ChartService', [
-      'getHourlyAveragedData',
-    ]);
-    mapService = jasmine.createSpyObj('MapService', [
-      'initMap',
-      'updateLocation',
-    ]);
+    locationsService = jasmine.createSpyObj('LocationsService', ['getLocations']);
+    chartService = jasmine.createSpyObj('ChartService', ['getHourlyAveragedData']);
+    mapService = jasmine.createSpyObj('MapService', ['initMap', 'updateLocation']);
 
     locationsService.getLocations.and.returnValue(of(mockLocationsData));
     chartService.getHourlyAveragedData.and.returnValue(of(mockDataTableData));

@@ -3,7 +3,7 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatCardModule } from '@angular/material/card';
 import { CommonModule } from '@angular/common';
 import { ChartTableComponent } from '@features/dashboard/chart-table/chart-table.component';
-import { MapLocationPanelComponent } from "@features/dashboard/map-location-panel/map-location-panel.component";
+import { MapLocationPanelComponent } from '@features/dashboard/map-location-panel/map-location-panel.component';
 
 @Component({
   selector: 'awa-dashboard-page',
@@ -13,10 +13,10 @@ import { MapLocationPanelComponent } from "@features/dashboard/map-location-pane
     ChartTableComponent,
     MatToolbarModule,
     MatCardModule,
-    MapLocationPanelComponent
-],
+    MapLocationPanelComponent,
+  ],
   templateUrl: './dashboard-page.component.html',
   styleUrl: './dashboard-page.component.scss',
-  changeDetection: ChangeDetectionStrategy.OnPush
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class DashboardPageComponent {}

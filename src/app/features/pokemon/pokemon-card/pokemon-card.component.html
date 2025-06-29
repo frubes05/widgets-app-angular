@@ -1,83 +1,74 @@
 <article class="pokemon-card">
   @if (pokemon$ | async; as pokemon) {
-  <div class="pokemon-card__sections">
-    <img
-      [src]="pokemon.image"
-      [alt]="pokemon.name"
-      class="pokemon-card__image"
-    />
+    <div class="pokemon-card__sections">
+      <img [src]="pokemon.image" [alt]="pokemon.name" class="pokemon-card__image" />
 
-    <div class="pokemon-card__wrapper">
-      <h1 class="pokemon-card__title">{{ pokemon.name | titlecase }}</h1>
-      <div class="pokemon-card__info">
-        <div class="pokemon-card__base">
-          <mat-grid-list cols="2" rowHeight="2:1" gutterSize="12">
-            <mat-grid-tile>
-              <p>
-                <span>Height:</span> <span>{{ pokemon.height }}</span>
-              </p>
-            </mat-grid-tile>
-            <mat-grid-tile>
-              <p>
-                <span>Weight:</span> <span>{{ pokemon.weight }}</span>
-              </p>
-            </mat-grid-tile>
-            <mat-grid-tile>
-              <p>
-                <span>Abilities:</span>
-                @for (ability of pokemon.abilities; track ability; let $ls =
-                $last) {
-                <span>{{ ability }}</span>
+      <div class="pokemon-card__wrapper">
+        <h1 class="pokemon-card__title">{{ pokemon.name | titlecase }}</h1>
+        <div class="pokemon-card__info">
+          <div class="pokemon-card__base">
+            <mat-grid-list cols="2" rowHeight="2:1" gutterSize="12">
+              <mat-grid-tile>
+                <p>
+                  <span>Height:</span> <span>{{ pokemon.height }}</span>
+                </p>
+              </mat-grid-tile>
+              <mat-grid-tile>
+                <p>
+                  <span>Weight:</span> <span>{{ pokemon.weight }}</span>
+                </p>
+              </mat-grid-tile>
+              <mat-grid-tile>
+                <p>
+                  <span>Abilities:</span>
+                  @for (ability of pokemon.abilities; track ability; let $ls = $last) {
+                    <span>{{ ability }}</span>
+                  }
+                </p>
+              </mat-grid-tile>
+              <mat-grid-tile>
+                <p>
+                  <span>Base experience:</span>
+                  <span>{{ pokemon.base_experience }}</span>
+                </p>
+              </mat-grid-tile>
+            </mat-grid-list>
+          </div>
+
+          <div>
+            <div class="pokemon-card__types">
+              <p>Types</p>
+              <ul>
+                @for (type of pokemon.types; track type; let $ls = $last) {
+                  <li>
+                    <mat-chip [class]="'pokemon-card__type type--' + type">{{ type }}</mat-chip>
+                  </li>
                 }
-              </p>
-            </mat-grid-tile>
-            <mat-grid-tile>
-              <p>
-                <span>Base experience:</span>
-                <span>{{ pokemon.base_experience }}</span>
-              </p>
-            </mat-grid-tile>
-          </mat-grid-list>
-        </div>
+              </ul>
+            </div>
 
-        <div>
-          <div class="pokemon-card__types">
-            <p>Types</p>
-            <ul>
-              @for (type of pokemon.types; track type; let $ls = $last) {
-              <li>
-                <mat-chip [class]="'pokemon-card__type type--' + type">{{
-                  type
-                }}</mat-chip>
-              </li>
-              }
-            </ul>
-          </div>
+            <div class="pokemon-card__stats">
+              <p>Stats</p>
+              <ul>
+                @for (stat of pokemon.stats; track stat.name) {
+                  <li>
+                    <mat-chip class="pokemon-card__stat white-chip">
+                      <span class="pokemon-card__stat__name">{{ stat.name | titlecase }}:</span>
+                      {{ stat.value }}
+                    </mat-chip>
+                  </li>
+                }
+              </ul>
+            </div>
 
-          <div class="pokemon-card__stats">
-            <p>Stats</p>
-            <ul>
-              @for (stat of pokemon.stats; track stat.name) {
-              <li>
-                <mat-chip class="pokemon-card__stat white-chip">
-                  <span class="pokemon-card__stat__name"
-                    >{{ stat.name | titlecase }}:</span
-                  >
-                  {{ stat.value }}
-                </mat-chip>
-              </li>
-              }
-            </ul>
-          </div>
-
-          <div class="pokemon-card__actions">
-            <ng-content select="[actions]"></ng-content>
+            <div class="pokemon-card__actions">
+              <ng-content select="[actions]"></ng-content>
+            </div>
           </div>
         </div>
       </div>
     </div>
-  </div>
   } @else {
-  <awa-pokemon-card-skeletons />
+    <awa-pokemon-card-skeletons />
   }
 </article>

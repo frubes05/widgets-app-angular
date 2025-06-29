@@ -7,6 +7,6 @@ import { RepeatDirective } from '@shared/directives';
   standalone: true,
   imports: [MatListModule, RepeatDirective],
   templateUrl: './location-list-skeletons.component.html',
-  styleUrls: ['./location-list-skeletons.component.scss']
+  styleUrls: ['./location-list-skeletons.component.scss'],
 })
 export class LocationListSkeletonsComponent {}

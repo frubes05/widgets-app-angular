@@ -28,11 +28,10 @@ export class PokemonDetailsPageComponent {
   private readonly pokemonFacade = inject(PokemonFacade);
   readonly location = inject(Location);
 
-  readonly pokemon$: Observable<PokemonDetails | null> =
-    this.route.paramMap.pipe(
-      map((params) => params.get('name')),
-      switchMap((name) => (name ? this.pokemonFacade.getPokemon$(name) : []))
-    );
+  readonly pokemon$: Observable<PokemonDetails | null> = this.route.paramMap.pipe(
+    map((params) => params.get('name')),
+    switchMap((name) => (name ? this.pokemonFacade.getPokemon$(name) : []))
+  );
 
   goBack(): void {
     this.pokemonFacade.goToPokemonsTablePage();

@@ -18,8 +18,8 @@ describe('HttpService', () => {
       providers: [
         HttpService,
         { provide: CacheService, useValue: cacheServiceSpy },
-        { provide: ErrorHandlerService, useValue: errorHandlerSpy }
-      ]
+        { provide: ErrorHandlerService, useValue: errorHandlerSpy },
+      ],
     });
 
     service = TestBed.inject(HttpService);
@@ -50,7 +50,7 @@ describe('HttpService', () => {
     cacheServiceSpy.has.and.returnValue(false);
 
     let response: any;
-    service.request<typeof apiData>(url).subscribe(res => (response = res));
+    service.request<typeof apiData>(url).subscribe((res) => (response = res));
 
     const req = httpMock.expectOne(url);
     expect(req.request.method).toBe('GET');
@@ -68,7 +68,7 @@ describe('HttpService', () => {
 
     let caughtError: any;
     service.request(url).subscribe({
-      error: err => (caughtError = err)
+      error: (err) => (caughtError = err),
     });
 
     const req = httpMock.expectOne(url);

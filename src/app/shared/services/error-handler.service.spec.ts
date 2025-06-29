@@ -10,10 +10,7 @@ describe('ErrorHandlerService', () => {
     snackBarSpy = jasmine.createSpyObj('MatSnackBar', ['open']);
 
     TestBed.configureTestingModule({
-      providers: [
-        ErrorHandlerService,
-        { provide: MatSnackBar, useValue: snackBarSpy }
-      ]
+      providers: [ErrorHandlerService, { provide: MatSnackBar, useValue: snackBarSpy }],
     });
 
     service = TestBed.inject(ErrorHandlerService);
@@ -27,21 +24,15 @@ describe('ErrorHandlerService', () => {
     const error = { message: 'Something went wrong' };
     service.handle(error);
 
-    expect(snackBarSpy.open).toHaveBeenCalledWith(
-      'Something went wrong',
-      'Close',
-      { duration: 4000 }
-    );
+    expect(snackBarSpy.open).toHaveBeenCalledWith('Something went wrong', 'Close', {
+      duration: 4000,
+    });
   });
 
   it('should show fallback message if no error message provided', () => {
     const error = {};
     service.handle(error);
 
-    expect(snackBarSpy.open).toHaveBeenCalledWith(
-      'An Error occured!',
-      'Close',
-      { duration: 4000 }
-    );
+    expect(snackBarSpy.open).toHaveBeenCalledWith('An Error occured!', 'Close', { duration: 4000 });
   });
 });

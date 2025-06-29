@@ -62,9 +62,7 @@ describe('normalizeDashboardData', () => {
         ],
       };
 
-      const expected: AveragedDataPoint[] = [
-        { time: '2024-06-29T12:00:00Z', value: 77.78 },
-      ];
+      const expected: AveragedDataPoint[] = [{ time: '2024-06-29T12:00:00Z', value: 77.78 }];
 
       const result = normalizeChartData(input);
       expect(result).toEqual(expected);

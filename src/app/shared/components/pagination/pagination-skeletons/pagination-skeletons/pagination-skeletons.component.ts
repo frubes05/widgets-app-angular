@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
-import { RepeatDirective } from '@shared/directives/repeat/repeat.directive'; 
+import { RepeatDirective } from '@shared/directives/repeat/repeat.directive';
 
 @Component({
   selector: 'awa-pagination-skeletons',

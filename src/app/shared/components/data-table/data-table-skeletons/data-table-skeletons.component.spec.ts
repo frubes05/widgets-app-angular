@@ -25,7 +25,7 @@ describe('DataTableSkeletonComponent', () => {
     const rows = fixture.debugElement.queryAll(By.css('tr[mat-row]'));
     expect(rows.length).toBe(3);
 
-    rows.forEach(row => {
+    rows.forEach((row) => {
       const cells = row.queryAll(By.css('td'));
       expect(cells.length).toBe(2);
     });

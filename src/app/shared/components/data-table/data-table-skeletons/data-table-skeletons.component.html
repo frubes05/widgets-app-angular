@@ -1,8 +1,4 @@
-<table
-  mat-table
-  [dataSource]="rows"
-  class="mat-elevation-z8 table-skeleton"
->
+<table mat-table [dataSource]="rows" class="mat-elevation-z8 table-skeleton">
   <ng-container *repeat="columns.length; let i = index" [matColumnDef]="columns[i].columnDef">
     <th mat-header-cell *matHeaderCellDef>
       <div class="skeleton skeleton-text"></div>

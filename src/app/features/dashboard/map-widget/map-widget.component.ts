@@ -6,7 +6,7 @@ import {
   inject,
   Input,
   OnChanges,
-  ViewChild
+  ViewChild,
 } from '@angular/core';
 import { LocationModel } from '@shared/models';
 import { DashboardFacade } from '@facades/dashboard/dashboard.facade';
@@ -15,7 +15,7 @@ import { DashboardFacade } from '@facades/dashboard/dashboard.facade';
   selector: 'awa-map-widget',
   templateUrl: './map-widget.component.html',
   styleUrl: './map-widget.component.scss',
-  changeDetection: ChangeDetectionStrategy.OnPush
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class MapWidgetComponent implements AfterViewInit, OnChanges {
   private readonly dashboardFacade = inject(DashboardFacade);

@@ -12,7 +12,7 @@ describe('DataTableComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [DataTableComponent, CommonModule, MatTableModule]
+      imports: [DataTableComponent, CommonModule, MatTableModule],
     }).compileComponents();
 
     fixture = TestBed.createComponent(DataTableComponent);

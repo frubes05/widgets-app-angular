@@ -6,9 +6,7 @@ import { RepeatDirective } from './repeat.directive';
 @Component({
   standalone: true,
   imports: [RepeatDirective],
-  template: `
-    <div *repeat="count as c; let i = index" class="repeated">{{ i }}</div>
-  `
+  template: ` <div *repeat="count as c; let i = index" class="repeated">{{ i }}</div> `,
 })
 class TestHostComponent {
   count = 3;
@@ -31,7 +29,7 @@ describe('RepeatDirective', () => {
   it('should render 3 repeated elements', () => {
     const elements = fixture.debugElement.queryAll(By.css('.repeated'));
     expect(elements.length).toBe(3);
-    expect(elements.map(e => e.nativeElement.textContent.trim())).toEqual(['0', '1', '2']);
+    expect(elements.map((e) => e.nativeElement.textContent.trim())).toEqual(['0', '1', '2']);
   });
 
   it('should update when input changes', () => {
@@ -40,6 +38,12 @@ describe('RepeatDirective', () => {
 
     const elements = fixture.debugElement.queryAll(By.css('.repeated'));
     expect(elements.length).toBe(5);
-    expect(elements.map(e => e.nativeElement.textContent.trim())).toEqual(['0', '1', '2', '3', '4']);
+    expect(elements.map((e) => e.nativeElement.textContent.trim())).toEqual([
+      '0',
+      '1',
+      '2',
+      '3',
+      '4',
+    ]);
   });
 });

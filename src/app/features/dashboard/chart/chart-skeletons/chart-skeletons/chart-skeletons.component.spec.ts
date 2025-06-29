@@ -9,9 +9,8 @@ describe('ChartSkeletonsComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [ChartSkeletonsComponent]
-    })
-    .compileComponents();
+      imports: [ChartSkeletonsComponent],
+    }).compileComponents();
 
     fixture = TestBed.createComponent(ChartSkeletonsComponent);
     component = fixture.componentInstance;

@@ -12,8 +12,8 @@ describe('AppComponent', () => {
           useValue: {
             snapshot: { data: {} },
           },
-        }
-      ]
+        },
+      ],
     }).compileComponents();
   });
 

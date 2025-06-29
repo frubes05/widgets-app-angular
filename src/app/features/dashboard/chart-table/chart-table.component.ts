@@ -7,8 +7,8 @@ import { DashboardFacade } from '@facades/dashboard/dashboard.facade';
 import { DataTableComponent } from '@shared/components/data-table/data-table.component';
 import { ChartDisplayData, AveragedDataPoint } from '@shared/models';
 import { Observable } from 'rxjs';
-import { ChartComponent } from "@features/dashboard/chart/chart.component";
-import { ChartSkeletonsComponent } from "@features/dashboard/chart/chart-skeletons/chart-skeletons/chart-skeletons.component";
+import { ChartComponent } from '@features/dashboard/chart/chart.component';
+import { ChartSkeletonsComponent } from '@features/dashboard/chart/chart-skeletons/chart-skeletons/chart-skeletons.component';
 import { DataTableSkeletonComponent } from '@shared/components/data-table/data-table-skeletons/data-table-skeletons.component';
 import { CHART_OPTIONS, CHART_TABLE_COLUMNS } from '@shared/constants';
 
@@ -23,13 +23,12 @@ import { CHART_OPTIONS, CHART_TABLE_COLUMNS } from '@shared/constants';
     DataTableComponent,
     DataTableSkeletonComponent,
     ChartComponent,
-    ChartSkeletonsComponent
-],
+    ChartSkeletonsComponent,
+  ],
   templateUrl: './chart-table.component.html',
   styleUrls: ['./chart-table.component.scss'],
-  changeDetection: ChangeDetectionStrategy.OnPush
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
-
 export class ChartTableComponent {
   private readonly dashboardFacade = inject(DashboardFacade);
   readonly displayedColumns = CHART_TABLE_COLUMNS;

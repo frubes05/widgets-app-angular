@@ -1,31 +1,10 @@
 @use "styles/index" as *;
 
 .skeleton {
+  height: 400px;
+  width: 100%;
   background-color: $color-surface;
   border-radius: $radius-sm;
   display: inline-block;
   animation: pulse 1.5s infinite ease-in-out;
-}
-
-.chart-skeleton {
-  height: 400px;
-  width: 100%;
-}
-
-.skeleton-text {
-  height: 16px;
-  width: 100%;
-  margin: $spacing-xs 0;
-}
-
-@keyframes pulse {
-  0% {
-    opacity: 1;
-  }
-  50% {
-    opacity: 0.4;
-  }
-  100% {
-    opacity: 1;
-  }
 }

@@ -1,12 +1,14 @@
-@use 'styles/index' as *;
+@use "styles/index" as *;
 
-.pokemon-details-page-center {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding: $spacing-xxl;
-  min-height: calc(100vh - 128px);
-  background-image: url("../../../../public/assets/bg-green-2x-optim.png");
-  background-repeat: no-repeat;
-  background-size: cover;
+.pokemon-details-page {
+  &__center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: $spacing-xxl;
+    min-height: calc(100vh - 128px);
+    background-image: url("../../../../public/assets/bg-green-2x-optim.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
 }

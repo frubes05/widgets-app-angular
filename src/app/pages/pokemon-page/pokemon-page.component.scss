@@ -8,7 +8,7 @@
     width: 100%;
   }
 
-  &-center {
+  &__center {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -17,36 +17,5 @@
     background-image: url("../../../../public/assets/bg-green-2x-optim.png");
     background-repeat: no-repeat;
     background-size: cover;
-  }
-
-  &__title {
-    font-size: $font-size-xl;
-    margin-bottom: $spacing-normal;
-  }
-
-  &__table {
-    width: 100%;
-
-    @media (max-width: 600px) {
-      overflow-x: auto;
-      display: block;
-
-      mat-header-cell,
-      mat-cell {
-        white-space: nowrap;
-      }
-    }
-  }
-
-  &__table-header {
-    font-weight: $font-weight-bold;
-  }
-
-  &__table-cell {
-    vertical-align: middle;
-  }
-
-  &__image {
-    border-radius: $radius-sm;
   }
 }

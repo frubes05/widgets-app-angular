@@ -1,6 +1,6 @@
-<section class="chart-table-wrapper">
-  <div class="chart-table-row">
-    <mat-card class="chart-container">
+<section class="chart-table__wrapper">
+  <div class="chart-table__row">
+    <mat-card class="chart-table__container chart-table__container--chart">
       @if (chartData$ | async; as chartData) {
       <awa-chart [chartData]="chartData" [chartOptions]="chartOptions" />
       } @else {
@@ -8,7 +8,7 @@
       }
     </mat-card>
 
-    <mat-card class="table-container">
+    <mat-card class="chart-table__container chart-table__container--table">
       @if (tableData$ | async; as tableData) {
       <awa-data-table [data]="tableData" [displayedColumns]="displayedColumns" [isClickable]="false" />
       } @else {

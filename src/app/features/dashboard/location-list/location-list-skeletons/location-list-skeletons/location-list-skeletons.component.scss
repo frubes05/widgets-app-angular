@@ -1,27 +1,15 @@
 @use 'styles/index' as *;
 
-.skeleton-text {
-  height: 20px;
-  width: 70%;
-}
-
-.location-skeleton-item {
+.location-list-skeleton {
   height: 40px;
   margin-top: $spacing-xxs;
   padding-bottom: $spacing-xxs;
   background-color: $color-surface;
   border-radius: 0;
   animation: pulse 1.5s infinite ease-in-out;
-}
 
-@keyframes pulse {
-  0% {
-    opacity: 1;
-  }
-  50% {
-    opacity: 0.4;
-  }
-  100% {
-    opacity: 1;
+  .skeleton-text {
+    height: 20px;
+    width: 70%;
   }
 }

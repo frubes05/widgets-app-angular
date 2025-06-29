@@ -1,0 +1,13 @@
+@use "./colors" as *;
+
+@keyframes pulse {
+  0% {
+    background-color: $color-surface;
+  }
+  50% {
+    background-color: $color-surface-alt;
+  }
+  100% {
+    background-color: $color-surface;
+  }
+}

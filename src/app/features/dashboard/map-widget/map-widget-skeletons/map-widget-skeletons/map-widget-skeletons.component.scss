@@ -1,25 +1,10 @@
 @use 'styles/index' as *;
 
 .skeleton {
+  height: 400px;
+  width: 100%;
   background-color: $color-surface;
   border-radius: $radius-sm;
   display: block;
   animation: pulse 1.5s infinite ease-in-out;
-}
-
-.map-skeleton {
-  height: 400px;
-  width: 100%;
-}
-
-@keyframes pulse {
-  0% {
-    opacity: 1;
-  }
-  50% {
-    opacity: 0.4;
-  }
-  100% {
-    opacity: 1;
-  }
 }

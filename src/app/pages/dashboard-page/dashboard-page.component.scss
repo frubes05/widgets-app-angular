@@ -6,24 +6,3 @@
   flex-direction: column;
   gap: $spacing-normal;
 }
-
-.chart-card {
-  padding: $spacing-normal;
-}
-
-.chart-table {
-  display: flex;
-  flex-direction: row;
-  gap: $spacing-normal;
-  flex-wrap: wrap;
-
-  .chart {
-    flex: 2;
-    padding: $spacing-normal;
-  }
-
-  .table {
-    flex: 1;
-    padding: 16px;
-  }
-}

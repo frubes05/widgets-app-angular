@@ -1,11 +1,11 @@
 <div class="map-locations">
   @if (selectedLocation | async; as selected) { @if (locations | async; as locs)
   {
-  <mat-card class="map-card">
+  <mat-card class="map-locations__card map-locations__card--map">
     <awa-map-widget [location]="selected" />
   </mat-card>
 
-  <mat-card class="location-list-card">
+  <mat-card class="map-locations__card map-locations__card--locations">
     <awa-location-list
       [locations]="locs"
       [selectedLocation]="selected"
@@ -13,11 +13,11 @@
     />
   </mat-card>
   } } @else {
-  <mat-card class="map-card">
+  <mat-card class="map-locations__card map-locations__card--map">
     <awa-map-widget-skeletons />
   </mat-card>
 
-  <mat-card class="location-list-card">
+  <mat-card class="map-locations__card map-locations__card--locations">
     <awa-location-list-skeletons />
   </mat-card>
   }

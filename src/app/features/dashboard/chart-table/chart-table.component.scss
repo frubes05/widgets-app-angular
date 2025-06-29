@@ -1,39 +1,39 @@
-@use 'styles/index' as *;
+@use "styles/index" as *;
 
-.section-title {
-  margin-bottom: $spacing-normal;
-}
+.chart-table {
+  &__row {
+    display: flex;
+    flex-direction: column;
+    gap: $spacing-lg;
+    padding: $spacing-normal;
+  }
 
-.chart-table-row {
-  display: flex;
-  flex-direction: column;
-  gap: $spacing-lg;
-  padding: $spacing-normal;
-}
+  &__container {
+    &--chart {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      flex: 2;
+      max-height: 600px;
+      overflow: hidden;
+      padding: $spacing-xxl;
+      box-shadow: $shadow-elevation-medium;
+      border-radius: $radius-2xl;
+      width: 100%;
+    }
 
-.chart-container {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  flex: 2;
-  max-height: 600px;
-  overflow: hidden;
-  padding: $spacing-xxl;
-  box-shadow: $shadow-elevation-medium;
-  border-radius: $radius-2xl;
-  width: 100%;
-}
+    &--table {
+      flex: 1;
+      box-shadow: $shadow-elevation-medium;
+      border-radius: $radius-2xl;
+      padding: $spacing-xxl;
+      overflow-x: scroll;
+      width: 100%;
 
-.table-container {
-  flex: 1;
-  box-shadow: $shadow-elevation-medium;
-  border-radius: $radius-2xl;
-  padding: $spacing-xxl;
-  overflow-x: scroll;
-  width: 100%;
-
-  @media (min-width: 548px) {
-    overflow-x: unset;
+      @media (min-width: 548px) {
+        overflow-x: unset;
+      }
+    }
   }
 }

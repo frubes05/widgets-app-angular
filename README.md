@@ -2,7 +2,7 @@
 
 Link na deployanu stranicu: https://frubes05.github.io/widgets-app-angular
 
-Cilj zadatka je razvoj Angular aplikacije sa interaktivnim widgetima:
+Angular aplikacija s interaktivnim widgetima:
 
 - Karta s početnom lokacijom Heinzelova 70
 - Lista lokacija

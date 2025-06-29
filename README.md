@@ -42,10 +42,12 @@ Aplikacija će biti dostupna na adresi `http://localhost:4200/`.
 
 ### Prikaz podataka iz datoteke `podaci.json`
 
-- Učitavanje podataka iz JSON datoteke putem fetcha (simulacija HTTP GET requesta)
+- Podaci za aplikaciju spremljeni unutar public/assets foldera
+- Učitavanje podataka iz JSON datoteka putem fetcha (simulacija HTTP GET requesta)
 - Prikaz u tablici: originalni 15-minutni podaci
 - Grafikon izrađen pomoću Chart.js
 - Podaci se transformiraju u satni format uzimanjem prosjeka za svaki sat
+- Lokacije također spremljene u JSON formatu (simulacija HTTP GET requesta)
 
 ### Prikaz podataka s PokéAPI servisa
 

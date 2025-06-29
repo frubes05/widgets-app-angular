@@ -1,12 +1,14 @@
+@use 'styles/index' as *;
+
 .section-title {
-  margin-bottom: 16px;
+  margin-bottom: $spacing-normal;
 }
 
 .chart-table-row {
   display: flex;
   flex-direction: column;
-  gap: 24px;
-  padding: 1rem;
+  gap: $spacing-lg;
+  padding: $spacing-normal;
 }
 
 .chart-container {
@@ -17,17 +19,17 @@
   flex: 2;
   max-height: 600px;
   overflow: hidden;
-  padding: 2rem;
-  box-shadow: 0px 2px 8px rgba(0,0,0,0.5);
-  border-radius: 20px;
+  padding: $spacing-xxl;
+  box-shadow: $shadow-elevation-medium;
+  border-radius: $radius-2xl;
   width: 100%;
 }
 
 .table-container {
   flex: 1;
-  box-shadow: 0px 2px 8px rgba(0,0,0,0.5);
-  border-radius: 20px;
-  padding: 2rem;
+  box-shadow: $shadow-elevation-medium;
+  border-radius: $radius-2xl;
+  padding: $spacing-xxl;
   overflow-x: scroll;
   width: 100%;
 

@@ -18,7 +18,7 @@ Cilj zadatka je razvoj Angular aplikacije sa interaktivnim widgetima:
 - RxJS
 - [Leaflet](https://leafletjs.com/)
 - [Chart.js](https://www.chartjs.org/)
-- [PokéAPI](https://pokeapi.co/)
+- [Poke API](https://pokeapi.co/)
 
 ---
 
@@ -47,15 +47,15 @@ Aplikacija će biti dostupna na adresi `http://localhost:4200/`.
 - Podaci za aplikaciju spremljeni unutar public/assets foldera
 - Učitavanje podataka iz JSON datoteka putem fetcha (simulacija HTTP GET requesta)
 - Prikaz u tablici: originalni 15-minutni podaci
-- Grafikon izrađen pomoću Chart.js
+- Graf izrađen pomoću Chart.js
 - Podaci se transformiraju u satni format uzimanjem prosjeka za svaki sat
 - Lokacije također spremljene u JSON formatu (simulacija HTTP GET requesta)
 
 ### Prikaz podataka s PokéAPI servisa
 
-- Na `/pokemons` ruti dohvaćaju se podaci o Pokémonima (maksimalno 100)
-- Paginacija: prikaz 10 Pokémon-a po stranici
-- Klikom na red u tablici otvara se detaljan prikaz odabranog Pokémona
+- Na `/pokemons` ruti dohvaćaju se podaci o Pokemonima (maksimalno 100)
+- Paginacija: prikaz 10 Pokemon-a po stranici
+- Klikom na red u tablici otvara se detaljan prikaz odabranog Pokemona
 - Povratak s detalja vraća korisnika na prethodnu stranicu i isti položaj u paginaciji
 - Podaci uključuju: ID, naziv, visinu, težinu, tip i sliku
 

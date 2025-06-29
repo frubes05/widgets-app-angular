@@ -2,8 +2,8 @@ import { TestBed } from '@angular/core/testing';
 import { HttpClientTestingModule, HttpTestingController } from '@angular/common/http/testing';
 import { ChartService } from './chart.service';
 import { HttpService } from '@shared/services';
-import { HourlyDataMap } from '@shared/models';
 import { firstValueFrom } from 'rxjs';
+import { mockHourlyData } from '@shared/testing/mocks';
 
 describe('ChartService', () => {
   let service: ChartService;
@@ -24,18 +24,6 @@ describe('ChartService', () => {
   });
 
   it('should return averaged hourly data points', async () => {
-    const mockHourlyData: HourlyDataMap = {
-      '2025-06-27T08:00:00Z': [
-        { timestampStart: '2025-06-27T08:00:00Z', timestampEnd: '2025-06-27T08:59:59Z', value: 10 },
-        { timestampStart: '2025-06-27T08:15:00Z', timestampEnd: '2025-06-27T08:29:59Z', value: 20 },
-        { timestampStart: '2025-06-27T08:45:00Z', timestampEnd: '2025-06-27T08:59:59Z', value: 30 },
-      ],
-      '2025-06-27T09:00:00Z': [
-        { timestampStart: '2025-06-27T09:00:00Z', timestampEnd: '2025-06-27T09:59:59Z', value: 15 },
-        { timestampStart: '2025-06-27T09:30:00Z', timestampEnd: '2025-06-27T09:59:59Z', value: 25 },
-      ],
-    };
-
     const obs$ = service.getHourlyAveragedData();
     const resultPromise = firstValueFrom(obs$);
 

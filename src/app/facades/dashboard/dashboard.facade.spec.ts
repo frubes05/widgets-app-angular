@@ -1,28 +1,15 @@
 import { TestBed } from '@angular/core/testing';
 import { DashboardFacade } from './dashboard.facade';
 import { DatePipe } from '@angular/common';
-import { LocationsService } from '@features/dashboard/services/locations.service';
-import { ChartService } from '@features/dashboard/services/chart.service';
-import { MapService } from '@features/dashboard/services/map.service';
+import { ChartService, MapService, LocationsService } from '@features/dashboard/services';
 import { of, skip } from 'rxjs';
-import { LocationModel, AveragedDataPoint } from '@shared/models';
+import { mockDataTableData, mockLocationsData } from '@shared/testing/mocks';
 
 describe('DashboardFacade', () => {
   let facade: DashboardFacade;
   let locationsService: jasmine.SpyObj<LocationsService>;
   let chartService: jasmine.SpyObj<ChartService>;
   let mapService: jasmine.SpyObj<MapService>;
-
-  const mockLocations: LocationModel[] = [
-    { name: 'Berlin', lat: 52.52, lng: 13.405 },
-    { name: 'Paris', lat: 48.8566, lng: 2.3522 },
-  ];
-
-  const mockDataPoints: AveragedDataPoint[] = [
-    { time: '2023-01-01T12:00:00Z', value: 10 },
-    { time: '2023-01-01T13:00:00Z', value: 15 },
-    { time: '2023-01-01T14:00:00Z', value: 20 },
-  ];
 
   beforeEach(() => {
     locationsService = jasmine.createSpyObj('LocationsService', [
@@ -36,8 +23,8 @@ describe('DashboardFacade', () => {
       'updateLocation',
     ]);
 
-    locationsService.getLocations.and.returnValue(of(mockLocations));
-    chartService.getHourlyAveragedData.and.returnValue(of(mockDataPoints));
+    locationsService.getLocations.and.returnValue(of(mockLocationsData));
+    chartService.getHourlyAveragedData.and.returnValue(of(mockDataTableData));
 
     TestBed.configureTestingModule({
       providers: [
@@ -54,23 +41,23 @@ describe('DashboardFacade', () => {
 
   it('should emit locations$', (done) => {
     facade.locations$.subscribe((locations) => {
-      expect(locations).toEqual(mockLocations);
+      expect(locations).toEqual(mockLocationsData);
       done();
     });
   });
 
   it('should select default location if no manual selection made', (done) => {
     facade.selectedLocation$.subscribe((loc) => {
-      expect(loc).toEqual(mockLocations[0]);
+      expect(loc).toEqual(mockLocationsData[0]);
       done();
     });
   });
 
   it('should select manually selected location', (done) => {
-    facade.selectLocation(mockLocations[1]);
+    facade.selectLocation(mockLocationsData[1]);
 
     facade.selectedLocation$.pipe(skip(1)).subscribe((loc) => {
-      expect(loc).toEqual(mockLocations[1]);
+      expect(loc).toEqual(mockLocationsData[1]);
       done();
     });
   });
@@ -80,7 +67,7 @@ describe('DashboardFacade', () => {
       expect(chartData.labels.length).toBe(3);
       expect(chartData.datasets.length).toBe(1);
       expect(chartData.datasets[0].label).toBe('Vrijednost');
-      expect(chartData.datasets[0].data).toEqual([10, 15, 20]);
+      expect(chartData.datasets[0].data).toEqual([42.15, 38.71, 40.9]);
       expect(chartData.datasets[0].borderColor).toBeDefined();
       expect(chartData.datasets[0].backgroundColor).toContain('rgba');
       done();
@@ -89,14 +76,14 @@ describe('DashboardFacade', () => {
 
   it('should emit raw table data from chartService', (done) => {
     facade.tableData$.subscribe((data) => {
-      expect(data).toEqual(mockDataPoints);
+      expect(data).toEqual(mockDataTableData);
       done();
     });
   });
 
   it('should call mapService.initMap on initMap()', () => {
     const container = document.createElement('div');
-    const location = mockLocations[0];
+    const location = mockLocationsData[0];
 
     facade.initMap(container, location);
 
@@ -104,7 +91,7 @@ describe('DashboardFacade', () => {
   });
 
   it('should call mapService.updateLocation on updateMapLocation()', () => {
-    const location = mockLocations[1];
+    const location = mockLocationsData[1];
 
     facade.updateMapLocation(location);
 

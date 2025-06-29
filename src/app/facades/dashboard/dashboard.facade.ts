@@ -2,9 +2,7 @@ import { inject, Injectable } from '@angular/core';
 import { AveragedDataPoint, ChartDisplayData, LocationModel } from '@shared/models';
 import { BehaviorSubject, combineLatest, Observable } from 'rxjs';
 import { distinctUntilChanged, filter, map, shareReplay, startWith } from 'rxjs/operators';
-import { ChartService } from '@features/dashboard/services/chart.service';
-import { MapService } from '@features/dashboard/services/map.service';
-import { LocationsService } from '@features/dashboard/services/locations.service';
+import { ChartService, MapService, LocationsService } from '@features/dashboard/services';
 import { DatePipe } from '@angular/common';
 
 @Injectable({

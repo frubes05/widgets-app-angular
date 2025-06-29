@@ -2,16 +2,11 @@ import { TestBed } from '@angular/core/testing';
 import { LocationsService } from './locations.service';
 import { HttpService } from '@shared/services';
 import { of } from 'rxjs';
-import { LocationModel } from '@shared/models';
+import { mockLocationsData } from '@shared/testing/mocks';
 
 describe('LocationsService', () => {
   let service: LocationsService;
   let httpServiceMock: jasmine.SpyObj<HttpService>;
-
-  const mockLocations: LocationModel[] = [
-    { name: 'Paris', lat: 48.8566, lng: 2.3522 },
-    { name: 'Tokyo', lat: 35.6895, lng: 139.6917 },
-  ];
 
   beforeEach(() => {
     httpServiceMock = jasmine.createSpyObj('HttpService', ['request']);
@@ -31,17 +26,17 @@ describe('LocationsService', () => {
   });
 
   it('should return location data from HttpService', (done) => {
-    httpServiceMock.request.and.returnValue(of(mockLocations));
+    httpServiceMock.request.and.returnValue(of(mockLocationsData));
 
     service.getLocations().subscribe((locations) => {
-      expect(locations).toEqual(mockLocations);
+      expect(locations).toEqual(mockLocationsData);
       expect(httpServiceMock.request).toHaveBeenCalledWith('assets/locations/data.json');
       done();
     });
   });
 
   it('should cache the response', (done) => {
-    httpServiceMock.request.and.returnValue(of(mockLocations));
+    httpServiceMock.request.and.returnValue(of(mockLocationsData));
 
     service.getLocations().subscribe(() => {
       expect(httpServiceMock.request).toHaveBeenCalledTimes(1);

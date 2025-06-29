@@ -4,22 +4,15 @@ import { DashboardFacade } from '@facades/dashboard/dashboard.facade';
 import { of } from 'rxjs';
 import { LocationModel } from '@shared/models';
 import { DatePipe } from '@angular/common';
+import { mockLocationsData } from '@shared/testing/mocks';
 
 describe('MapLocationPanelComponent', () => {
   let component: MapLocationPanelComponent;
   let fixture: ComponentFixture<MapLocationPanelComponent>;
   let facadeSpy: jasmine.SpyObj<DashboardFacade>;
 
-  const mockLocations: LocationModel[] = [
-    { name: 'Kanto', lat: 35.0, lng: 139.0 },
-    { name: 'Johto', lat: 36.0, lng: 138.0 },
-  ];
-
-  const selectedLocation: LocationModel = {
-    name: 'Johto',
-    lat: 36.0,
-    lng: 138.0,
-  };
+  const mockLocations = mockLocationsData
+  const selectedLocation = mockLocationsData[1];
 
   beforeEach(async () => {
     facadeSpy = jasmine.createSpyObj(
@@ -60,7 +53,7 @@ describe('MapLocationPanelComponent', () => {
   });
 
   it('should call facade.selectLocation when onLocationSelect is called', () => {
-    const location: LocationModel = { name: 'Hoenn', lat: 34.0, lng: 135.0 };
+    const location: LocationModel = { name: 'Tokyo', lat: 35.6895, lng: 139.6917 };
 
     component.onLocationSelect(location);
 

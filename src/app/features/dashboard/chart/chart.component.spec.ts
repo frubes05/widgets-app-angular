@@ -1,34 +1,11 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { ChartComponent } from './chart.component';
 import { By } from '@angular/platform-browser';
-import { ChartOptions } from 'chart.js';
-import { ChartDisplayData } from '@shared/models';
+import { mockChartData, mockChartOptions } from '@shared/testing/mocks';
 
 describe('ChartComponent', () => {
   let component: ChartComponent;
   let fixture: ComponentFixture<ChartComponent>;
-
-  const mockChartData: ChartDisplayData = {
-    labels: ['Jan', 'Feb', 'Mar'],
-    datasets: [
-      {
-        label: 'Mock Data',
-        data: [10, 20, 30],
-        borderColor: 'rgba(75,192,192,1)',
-        backgroundColor: 'rgba(75,192,192,0.2)',
-        fill: true,
-        tension: 0.4
-      }
-    ]
-  };
-
-  const mockChartOptions: ChartOptions = {
-    responsive: true,
-    plugins: {
-      legend: { display: true },
-      tooltip: { enabled: true }
-    }
-  };
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({

@@ -3,7 +3,7 @@ import { PokemonFacade } from './pokemon.facade';
 import { Location } from '@angular/common';
 import { ActivatedRoute } from '@angular/router';
 import { of, BehaviorSubject, take } from 'rxjs';
-import { PokemonInformationService } from '@features/pokemon/services/pokemon-information.service';
+import { PokemonInformationService } from '@features/pokemon/services';
 import { PaginationService } from '@shared/services';
 import { PokemonDetails } from '@shared/models';
 import {

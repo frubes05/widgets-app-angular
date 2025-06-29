@@ -1,19 +1,13 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { MapWidgetComponent } from './map-widget.component';
-import { LocationModel } from '@shared/models';
 import { DashboardFacade } from '@facades/dashboard/dashboard.facade';
-import { ElementRef, SimpleChanges } from '@angular/core';
+import { ElementRef } from '@angular/core';
+import { mockLocationsData } from '@shared/testing/mocks';
 
 describe('MapWidgetComponent', () => {
   let component: MapWidgetComponent;
   let fixture: ComponentFixture<MapWidgetComponent>;
   let dashboardFacadeMock: jasmine.SpyObj<DashboardFacade>;
-
-  const mockLocation: LocationModel = {
-    name: 'Berlin',
-    lat: 52.52,
-    lng: 13.405,
-  };
 
   beforeEach(async () => {
     dashboardFacadeMock = jasmine.createSpyObj('DashboardFacade', [
@@ -38,20 +32,20 @@ describe('MapWidgetComponent', () => {
   });
 
   it('should call initMap after view init', () => {
-    component.location = mockLocation;
+    component.location = mockLocationsData[0];
     component.ngAfterViewInit();
 
     expect(dashboardFacadeMock.initMap).toHaveBeenCalledWith(
       component.mapContainer.nativeElement,
-      mockLocation
+      mockLocationsData[0]
     );
   });
 
   it('should call updateMapLocation on input change', () => {
-    component.location = mockLocation;
+    component.location = mockLocationsData[0];
 
     component.ngOnChanges();
 
-    expect(dashboardFacadeMock.updateMapLocation).toHaveBeenCalledWith(mockLocation);
+    expect(dashboardFacadeMock.updateMapLocation).toHaveBeenCalledWith(mockLocationsData[0]);
   });
 });

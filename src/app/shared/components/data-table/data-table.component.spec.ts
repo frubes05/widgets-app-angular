@@ -1,20 +1,14 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { DataTableComponent } from './data-table.component';
 import { By } from '@angular/platform-browser';
-import { AveragedDataPoint } from '@shared/models';
 import { MatTableModule } from '@angular/material/table';
 import { CommonModule } from '@angular/common';
 import { CHART_TABLE_COLUMNS } from '@shared/constants';
+import { mockDataTableData } from '@shared/testing/mocks';
 
 describe('DataTableComponent', () => {
   let component: DataTableComponent;
   let fixture: ComponentFixture<DataTableComponent>;
-
-  const mockData: AveragedDataPoint[] = [
-    { time: '2024-06-27T10:00:00Z', value: 42.15 },
-    { time: '2024-06-27T11:00:00Z', value: 38.71 },
-    { time: '2024-06-27T12:00:00Z', value: 40.90 }
-  ];
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
@@ -26,7 +20,7 @@ describe('DataTableComponent', () => {
   });
 
   it('should create', () => {
-    component.data = mockData;
+    component.data = mockDataTableData;
     fixture.detectChanges();
 
     expect(component).toBeTruthy();
@@ -34,7 +28,7 @@ describe('DataTableComponent', () => {
 
   it('should render a table based on input data', () => {
     component.displayedColumns = CHART_TABLE_COLUMNS;
-    component.data = [...mockData];
+    component.data = [...mockDataTableData];
     fixture.detectChanges();
 
     const table = fixture.debugElement.query(By.css('table'));

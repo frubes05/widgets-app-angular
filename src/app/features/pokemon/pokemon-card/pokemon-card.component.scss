@@ -1,9 +1,11 @@
+@use 'styles/index' as *;
+
 .pokemon-card {
   background: none;
   box-shadow: none;
 
   &__title {
-    font-size: 28px;
+    font-size: $font-size-xl;
     margin-top: 0;
     text-align: center;
   }
@@ -12,17 +14,17 @@
     position: relative;
     display: flex;
     flex-direction: column;
-    background-color: #e0e0e0;
-    border-radius: 20px;
-    padding: 20px;
-    box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.5);
+    background-color: $color-surface;
+    border-radius: $spacing-md;
+    padding: $spacing-md;
+    box-shadow: $shadow-elevation-medium;
   }
 
   &__sections {
     display: flex;
     justify-content: center;
     flex-direction: column;
-    gap: 24px;
+    gap: $spacing-lg;
 
     @media (min-width: 768px) {
       flex-direction: row;
@@ -32,7 +34,7 @@
   &__info {
     display: flex;
     flex-direction: column;
-    gap: 24px;
+    gap: $spacing-lg;
 
     @media (min-width: 1200px) {
       flex-direction: row;
@@ -43,9 +45,9 @@
     width: 100%;
     height: 400px;
     object-fit: contain;
-    background-color: #e0e0e0;
-    border-radius: 20px;
-    box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.5);
+    background-color: $color-surface;
+    border-radius: $spacing-md;
+    box-shadow: $shadow-elevation-medium;
 
     @media (min-width: 768px) {
       width: 300px;
@@ -58,9 +60,9 @@
     width: 400px;
 
     mat-grid-tile {
-      background: lightblue;
-      border: 1px solid #005dbb;
-      border-radius: 20px;
+      background: $color-info-light;
+      border: 1px solid $color-primary-dark;
+      border-radius: $spacing-md;
     }
 
     p {
@@ -70,14 +72,14 @@
     }
 
     span:first-of-type {
-      font-weight: 800;
-      font-size: 20px;
-      margin-bottom: 12px;
-      color: white;
+      font-weight: $font-weight-boldest;
+      font-size: $font-size-md;
+      margin-bottom: $spacing-sm;
+      color: $color-text-inverse;
     }
 
     span:not(:first-of-type) {
-      font-weight: 600;
+      font-weight: $font-weight-semibold;
     }
   }
 
@@ -85,79 +87,47 @@
     p {
       display: flex;
       flex-direction: column;
-      gap: 12px;
+      gap: $spacing-sm;
       flex-wrap: wrap;
-      font-weight: 600;
-      font-size: 20px;
+      font-weight: $font-weight-semibold;
+      font-size: $font-size-md;
       margin-top: 0;
     }
   }
 
   &__type {
     width: fit-content;
-    padding: 0.25rem 0.75rem;
+    padding: $spacing-xs $spacing-sm;
     border-radius: 10px;
-    margin: 0.25rem;
-    color: white !important;
-    font-weight: bold;
+    margin: $spacing-xs;
+    color: $color-text-inverse !important;
+    font-weight: $font-weight-bold;
     text-transform: uppercase;
 
-    &.type--grass {
-      background-color: #78c850;
-    }
-    &.type--poison {
-      background-color: #9f5b9f;
-    }
-    &.type--fire {
-      background-color: #f08030;
-    }
-    &.type--water {
-      background-color: #6890f0;
-    }
-    &.type--flying {
-      background-color: #a890f0;
-    }
-    &.type--normal {
-      background-color: #a8a878;
-    }
-    &.type--ground {
-      background-color: #e0c068;
-    }
-    &.type--bug {
-      background-color: #a8b820;
-    }
-    &.type--ghost {
-      background-color: magenta;
-    }
-    &.type--electric {
-      background-color: red;
-    }
-    &.type--psychic {
-      background-color: yellow;
-    }
-    &.type--rock {
-      background-color: grey;
-    }
-    &.type--fighting {
-      background-color: grey;
-    }
-    &.type--fairy {
-      background-color: pink;
-    }
-    &.type--steel {
-      background-color: darkgray;
-    }
-    &.type--ice {
-      background-color: lightgrey;
-    }
+    &.type--grass    { background-color: $color-type-grass; }
+    &.type--poison   { background-color: $color-type-poison; }
+    &.type--fire     { background-color: $color-type-fire; }
+    &.type--water    { background-color: $color-type-water; }
+    &.type--flying   { background-color: $color-type-flying; }
+    &.type--normal   { background-color: $color-type-normal; }
+    &.type--ground   { background-color: $color-type-ground; }
+    &.type--bug      { background-color: $color-type-bug; }
+    &.type--ghost    { background-color: $color-type-ghost; }
+    &.type--electric { background-color: $color-type-electric; }
+    &.type--psychic  { background-color: $color-type-psychic; }
+    &.type--rock     { background-color: $color-type-rock; }
+    &.type--fighting { background-color: $color-type-rock; }
+    &.type--fairy    { background-color: $color-type-fairy; }
+    &.type--steel    { background-color: $color-type-steel; }
+    &.type--ice      { background-color: $color-type-ice; }
   }
 
   &__stats {
-    margin-top: 32px;
+    margin-top: $spacing-xxl;
 
     p {
-      font-weight: 600;
-      font-size: 20px;
+      font-weight: $font-weight-semibold;
+      font-size: $font-size-md;
       margin-top: 0;
     }
 
@@ -167,20 +137,20 @@
 
     .pokemon-card__stat {
       width: fit-content;
-      padding: 0.25rem 0.75rem;
-      margin: 0.25rem;
-      font-weight: bold;
+      padding: $spacing-xs $spacing-sm;
+      margin: $spacing-xs;
+      font-weight: $font-weight-bold;
       text-transform: uppercase;
-      background-color: #005dbb;
-      border: 1px solid lightblue;
+      background-color: $color-primary-dark;
+      border: 1px solid $color-info-light;
     }
   }
 
   &__actions {
     @media (min-width: 768px) {
       position: absolute;
-      top: 20px;
-      right: 20px;
+      top: $spacing-md;
+      right: $spacing-md;
     }
   }
 
@@ -189,16 +159,16 @@
     margin: 0;
     list-style-type: none;
     display: flex;
-    gap: 6px;
+    gap: $spacing-xxs;
     flex-wrap: wrap;
   }
 }
 
 ::ng-deep .white-chip {
-  background-color: white !important;
-  color: #1e1e1e !important;
-  font-weight: bold;
+  background-color: $color-white !important;
+  color: $color-text-dark !important;
+  font-weight: $font-weight-bold;
   border-radius: 12px;
-  border: 1px solid #ccc;
-  padding: 4px 10px;
+  border: 1px solid $color-border-light;
+  padding: $spacing-xs $spacing-sm;
 }

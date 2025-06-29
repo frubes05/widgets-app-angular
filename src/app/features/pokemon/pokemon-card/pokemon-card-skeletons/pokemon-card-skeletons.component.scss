@@ -1,9 +1,10 @@
+@use 'styles/index' as *;
+
 .pokemon-card {
   background: none;
   box-shadow: none;
 
   &__title {
-    font-size: 28px;
     margin-top: 0;
     text-align: center;
   }
@@ -12,17 +13,17 @@
     position: relative;
     display: flex;
     flex-direction: column;
-    background-color: #e0e0e0;
-    border-radius: 20px;
-    padding: 20px;
-    box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.5);
+    background-color: $color-surface;
+    border-radius: $radius-2xl;
+    padding: $spacing-md;
+    box-shadow: $shadow-elevation-medium;
   }
 
   &__sections {
     display: flex;
     justify-content: center;
     flex-direction: column;
-    gap: 24px;
+    gap: $spacing-lg;
 
     @media (min-width: 768px) {
       flex-direction: row;
@@ -32,7 +33,7 @@
   &__info {
     display: flex;
     flex-direction: column;
-    gap: 24px;
+    gap: $spacing-lg;
 
     @media (min-width: 1200px) {
       flex-direction: row;
@@ -43,9 +44,9 @@
     width: 100%;
     height: 400px;
     object-fit: contain;
-    background-color: #e0e0e0;
-    border-radius: 20px;
-    box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.5);
+    background-color: $color-surface;
+    border-radius: $radius-2xl;
+    box-shadow: $shadow-elevation-medium;
 
     @media (min-width: 768px) {
       width: 300px;
@@ -58,8 +59,8 @@
     flex: 0 0 auto;
 
     mat-grid-tile {
-      border-radius: 20px;
-      background-color: #e0e0e0;
+      border-radius: $radius-2xl;
+      background-color: $color-surface;
       animation: pulse 1.6s infinite ease-in-out;
     }
 
@@ -77,54 +78,59 @@
     p {
       display: flex;
       flex-direction: column;
-      gap: 12px;
+      gap: $spacing-sm;
       flex-wrap: wrap;
-      font-weight: 600;
-      font-size: 20px;
       margin-top: 0;
+    }
+
+    .skeleton-button {
+      margin: $spacing-xs;
     }
   }
 
   &__type {
-    width: fit-content;
-    padding: 0.25rem 0.75rem;
-    border-radius: 10px;
-    margin: 0.25rem;
-    color: white !important;
-    font-weight: bold;
+    padding: $spacing-xxs $spacing-sm;
+    border-radius: $radius-lg;
+    margin: $spacing-xxs;
+    color: $color-white !important;
     text-transform: uppercase;
   }
 
   &__stats {
-    margin-top: 32px;
+    margin-top: $spacing-xxl;
 
     p {
-      font-weight: 600;
-      font-size: 20px;
       margin-top: 0;
     }
 
     ul {
       max-width: 400px;
-      height: 162px;
+      height: 206px;
+
+      li {
+        height: min-content;
+
+        span {
+          margin: $spacing-xs;
+        }
+      }
     }
 
     .pokemon-card__stat {
       width: fit-content;
-      padding: 0.25rem 0.75rem;
-      margin: 0.25rem;
-      font-weight: bold;
+      padding: $spacing-xxs $spacing-sm;
+      margin: $spacing-xxs;
       text-transform: uppercase;
-      background-color: #005dbb;
-      border: 1px solid lightblue;
+      background-color: $color-primary-dark;
+      border: 1px solid $color-info-light;
     }
   }
 
   &__actions {
     @media (min-width: 768px) {
       position: absolute;
-      top: 20px;
-      right: 20px;
+      top: $spacing-md;
+      right: $spacing-md;
     }
   }
 
@@ -133,37 +139,28 @@
     margin: 0;
     list-style-type: none;
     display: flex;
-    gap: 6px;
+    gap: $spacing-xxs;
     flex-wrap: wrap;
   }
 }
 
-::ng-deep .white-chip {
-  background-color: white !important;
-  color: #1e1e1e !important;
-  font-weight: bold;
-  border-radius: 12px;
-  border: 1px solid #ccc;
-  padding: 4px 10px;
-}
-
 .skeleton {
   display: inline-block;
-  background-color: #e0e0e0;
-  border-radius: 4px;
+  background-color: $color-surface;
+  border-radius: $radius-sm;
   animation: pulse 1.6s infinite ease-in-out;
 }
 
 .skeleton-title {
   margin-top: 0;
-  margin-bottom: 28px;
+  margin-bottom: $spacing-xl;
   height: 33px;
 }
 
 .skeleton-img-large {
   width: 100%;
   height: 400px !important;
-  border-radius: 8px;
+  border-radius: $radius-md;
 
   @media (min-width: 768px) {
     width: 300px;
@@ -181,10 +178,10 @@
 }
 
 .skeleton-detail__info {
-  margin-top: 1.5rem;
+  margin-top: $spacing-lg;
   display: flex;
   flex-direction: column;
-  gap: 0.3rem;
+  gap: $spacing-xxs;
 
   p {
     margin: 0;
@@ -195,9 +192,9 @@
   width: fit-content;
   min-width: 80px;
   height: 48px;
-  padding: 0 12px;
+  padding: 0 $spacing-md;
   display: inline-block;
-  border-radius: 16px;
+  border-radius: $radius-pill;
 }
 
 .skeleton-text-medium {
@@ -207,17 +204,17 @@
 
 .skeleton-text-short {
   width: 40%;
-  height: 20px;
+  height: 24px;
 }
 
 @keyframes pulse {
   0% {
-    background-color: #e0e0e0;
+    background-color: $color-surface;
   }
   50% {
-    background-color: #f0f0f0;
+    background-color: $color-surface-alt;
   }
   100% {
-    background-color: #e0e0e0;
+    background-color: $color-surface;
   }
 }

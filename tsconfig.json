@@ -23,7 +23,7 @@
       "@shared/*": ["app/shared/*"],
       "@features/*": ["app/features/*"],
       "@pages/*": ["app/pages/*"],
-      "@facades/*": ["app/facades/*"]
+      "@facades/*": ["app/facades/*"],
     }
   },
   "angularCompilerOptions": {

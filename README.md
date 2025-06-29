@@ -22,11 +22,11 @@ Cilj zadatka je razvoj Angular aplikacije sa interaktivnim widgetima:
 
 ### Instalacija dependencyja
 
-<pre> ``` npm install ``` </pre>
+<pre> npm install </pre>
 
 ## Pokretanje aplikacije
 
-<pre> ``` npm start ``` </pre>
+<pre> npm start </pre>
 
 Aplikacija će biti dostupna na adresi `http://localhost:4200/`.
 

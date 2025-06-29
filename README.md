@@ -22,11 +22,11 @@ Cilj zadatka je razvoj Angular aplikacije sa interaktivnim widgetima:
 
 ### Instalacija dependencyja
 
-npm install
+<pre> ``` npm install ``` </pre>
 
 ## Pokretanje aplikacije
 
-npm start
+<pre> ``` npm start ``` </pre>
 
 Aplikacija će biti dostupna na adresi `http://localhost:4200/`.
 
@@ -37,12 +37,12 @@ Aplikacija će biti dostupna na adresi `http://localhost:4200/`.
 ### Karta i lista lokacija
 
 - Prikaz početne lokacije: Heinzelova 70 (Zagreb)
-- Lista od 10 lokacija (uzete lokacije kvartova u Zagrebu, ali moze se promijeniti po potrebi)
+- Lista od 10 lokacija (uzete lokacije kvartova u Zagrebu, ali može se promijeniti po potrebi)
 - Klikom na lokaciju iz liste mijenja se lokacija markera na karti
 
 ### Prikaz podataka iz datoteke `podaci.json`
 
-- Učitavanje podataka iz JSON datoteke putem fetcha (simulacija http requesta)
+- Učitavanje podataka iz JSON datoteke putem fetcha (simulacija HTTP GET requesta)
 - Prikaz u tablici: originalni 15-minutni podaci
 - Grafikon izrađen pomoću Chart.js
 - Podaci se transformiraju u satni format uzimanjem prosjeka za svaki sat
@@ -68,7 +68,7 @@ Aplikacija će biti dostupna na adresi `http://localhost:4200/`.
 Aplikacija koristi Prettier za automatsko formatiranje koda.
 Konfiguracija se nalazi u `.prettierrc` i `.vscode/settings.json` datotekama.
 
-Za ručno formatiranje pokrenuti: npm run format
+Za ručno formatiranje pokrenuti: <pre> `npm run format` </pre>
 
 ---
 
@@ -76,6 +76,6 @@ Za ručno formatiranje pokrenuti: npm run format
 
 Aplikacija koristi Karma i Jasmine za testiranje Angular komponenti, servisa, direktiva i ostalih modula.
 
-Za ručno izvršavanje testova: npm run test
+Za ručno izvršavanje testova: <pre> `npm run test` </pre>
 
 ---

@@ -1,4 +1,5 @@
 @if (data.length) {
+  <div class="table-responsive">
 <table mat-table [dataSource]="data" class="mat-elevation-z8">
   @for (col of displayedColumns; track col) {
   <ng-container [matColumnDef]="col.columnDef">
@@ -23,4 +24,5 @@
     [class]="isClickable ? 'clickable-row' : ''"
   ></tr>
 </table>
+</div>
 }

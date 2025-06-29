@@ -1,18 +1,29 @@
 @use 'styles/index' as *;
 
-table {
+.table-responsive {
   width: 100%;
-  font-size: $font-size-sm;
+  overflow-x: auto;
 
-  th {
-    font-weight: $font-weight-bold;
-  }
+  table {
+    width: 100%;
+    min-width: 600px;
+    font-size: $font-size-sm;
 
-  .clickable-row {
-    cursor: pointer;
+    th {
+      font-weight: $font-weight-bold;
+      white-space: nowrap;
+    }
 
-    &:hover {
-      background-color: $color-surface-alt;
+    td {
+      white-space: nowrap;
+    }
+
+    .clickable-row {
+      cursor: pointer;
+
+      &:hover {
+        background-color: $color-surface-alt;
+      }
     }
   }
 }

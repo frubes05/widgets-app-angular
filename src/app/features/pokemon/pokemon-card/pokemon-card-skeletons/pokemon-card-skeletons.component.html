@@ -15,6 +15,9 @@
               </p>
             </mat-grid-tile>
           </mat-grid-list>
+          <mat-list cols="2" rowHeight="2:1" gutterSize="12">
+            <mat-list-item *repeat="4" class="skeleton"></mat-list-item>
+          </mat-list>
         </div>
 
         <div>
@@ -30,7 +33,7 @@
           <div class="pokemon-card-skeleton__stats">
             <p class="skeleton skeleton-text-short"></p>
             <ul>
-              <li *repeat="6">
+              <li *repeat="5">
                 <span class="skeleton skeleton-button"></span>
               </li>
             </ul>

@@ -63,6 +63,29 @@
       width: 400px;
     }
 
+    mat-grid-list {
+      display: none;
+
+      @media (min-width: 768px) {
+        display: block;
+      }
+    }
+
+    mat-list {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+
+      @media (min-width: 768px) {
+        display: none;
+      }
+
+      &-item {
+        height: 94px;
+        border-radius: $spacing-md;
+      }
+    }
+
     mat-grid-tile {
       border-radius: $radius-2xl;
       background-color: $color-surface;

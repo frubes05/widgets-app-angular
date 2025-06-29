@@ -63,6 +63,31 @@
       width: 400px;
     }
 
+    mat-grid-list {
+      display: none;
+
+      @media (min-width: 768px) {
+        display: block;
+      }
+    }
+
+    mat-list {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+
+      @media (min-width: 768px) {
+        display: none;
+      }
+
+      &-item {
+        height: auto;
+        background: $color-info-light;
+        border: 1px solid $color-primary-dark;
+        border-radius: $spacing-md;
+      }
+    }
+
     mat-grid-tile {
       background: $color-info-light;
       border: 1px solid $color-primary-dark;
@@ -183,10 +208,16 @@
   }
 
   &__actions {
-    @media (min-width: 768px) {
-      position: absolute;
-      top: $spacing-md;
-      right: $spacing-md;
+    ::ng-deep .mdc-button,
+    .mat-mdc-button {
+      min-width: 100% !important;
+
+      @media (min-width: 768px) {
+        position: absolute;
+        top: $spacing-md;
+        right: $spacing-md;
+        min-width: unset !important;
+      }
     }
   }
 

@@ -7,6 +7,7 @@ import { PokemonDetails } from '@shared/models';
 import { CommonModule } from '@angular/common';
 import { Observable } from 'rxjs';
 import { PokemonCardSkeletonsComponent } from '@features/pokemon/pokemon-card/pokemon-card-skeletons/pokemon-card-skeletons.component';
+import { MatListModule } from '@angular/material/list';
 
 @Component({
   selector: 'awa-pokemon-card',
@@ -17,6 +18,7 @@ import { PokemonCardSkeletonsComponent } from '@features/pokemon/pokemon-card/po
     PokemonCardSkeletonsComponent,
     MatChipsModule,
     MatGridListModule,
+    MatListModule,
   ],
   templateUrl: './pokemon-card.component.html',
   styleUrl: './pokemon-card.component.scss',

@@ -1,5 +1,7 @@
 # Angular Widgets App (AWA)
 
+(https://frubes05.github.io/widgets-app-angular)
+
 Cilj zadatka je razvoj Angular aplikacije sa interaktivnim widgetima:
 
 - Karta s početnom lokacijom Heinzelova 70

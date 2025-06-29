@@ -55,9 +55,13 @@
   }
 
   &__base {
-    height: 200px;
-    width: 400px;
+    width: 100%;
     flex: 0 0 auto;
+
+    @media (min-width: 768px) {
+      height: 200px;
+      width: 400px;
+    }
 
     mat-grid-tile {
       border-radius: $radius-2xl;
@@ -106,7 +110,10 @@
 
     ul {
       max-width: 400px;
-      height: 206px;
+
+      @media (min-width: 768px) {
+        height: 206px;
+      }
 
       li {
         height: min-content;

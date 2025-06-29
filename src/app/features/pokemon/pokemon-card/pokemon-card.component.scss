@@ -56,8 +56,12 @@
   }
 
   &__base {
-    height: 200px;
-    width: 400px;
+    width: 100%;
+
+    @media (min-width: 768px) {
+      height: 200px;
+      width: 400px;
+    }
 
     mat-grid-tile {
       background: $color-info-light;
@@ -203,4 +207,8 @@
   border-radius: 12px;
   border: 1px solid $color-border-light;
   padding: $spacing-xs $spacing-sm;
+}
+
+:host {
+  width: 100%;
 }

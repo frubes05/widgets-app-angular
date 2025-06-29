@@ -42,8 +42,24 @@ export class PokemonPageComponent implements OnInit {
 
   ngOnInit(): void {
     this.route.queryParamMap.subscribe((params) => {
-      const page = Number(params.get('page')) || 1;
-      this.pokemonFacade.loadPokemons(page);
+      const pageParam = Number(params.get('page'));
+      const requestedPage = isNaN(pageParam) || pageParam < 1 ? 1 : pageParam;
+      const maxPage = 10;
+
+      const safePage = Math.min(requestedPage, maxPage);
+
+      if (pageParam !== safePage) {
+        this.router.navigate([], {
+          relativeTo: this.route,
+          queryParams: { page: safePage },
+          queryParamsHandling: 'merge',
+          replaceUrl: true,
+        });
+
+        return;
+      }
+
+      this.pokemonFacade.loadPokemons(safePage);
     });
   }
 

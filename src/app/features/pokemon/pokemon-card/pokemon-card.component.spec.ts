@@ -2,7 +2,6 @@ import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { PokemonCardComponent } from './pokemon-card.component';
 import { of } from 'rxjs';
 import { By } from '@angular/platform-browser';
-import { PokemonDetails } from '@shared/models';
 import { mockPikachuNormalizedData } from '@shared/testing/mocks';
 
 describe('PokemonCardComponent', () => {

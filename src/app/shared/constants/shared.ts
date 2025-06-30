@@ -20,7 +20,7 @@ export const CHART_OPTIONS: ChartOptions = {
 };
 
 export const MAP_OPTIONS: IconOptions = {
-  iconUrl: 'assets/leaflet/marker-icon.png',
+  iconUrl: 'assets/leaflet/marker-icon-2x.png',
   iconRetinaUrl: 'assets/leaflet/marker-icon-2x.png',
   shadowUrl: 'assets/leaflet/marker-shadow.png',
   iconSize: [25, 41],

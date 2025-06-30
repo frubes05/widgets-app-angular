@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component, inject, OnInit } from '@angular/core';
+import { ChangeDetectionStrategy, Component, inject, OnDestroy, OnInit } from '@angular/core';
 import { MatTableModule } from '@angular/material/table';
 import { MatButtonModule } from '@angular/material/button';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
@@ -11,7 +11,7 @@ import { PaginationComponent } from '@shared/components/pagination/pagination.co
 import { POKEMON_TABLE_COLUMNS } from '@shared/constants';
 import { PaginationSkeletonsComponent } from '../../shared/components/pagination/pagination-skeletons/pagination-skeletons/pagination-skeletons.component';
 import { DataTableComponent } from '../../shared/components/data-table/data-table.component';
-import { distinctUntilChanged } from 'rxjs';
+import { distinctUntilChanged, Subject, takeUntil } from 'rxjs';
 
 @Component({
   selector: 'awa-pokemon-page',
@@ -31,10 +31,11 @@ import { distinctUntilChanged } from 'rxjs';
   styleUrls: ['./pokemon-page.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class PokemonPageComponent implements OnInit {
+export class PokemonPageComponent implements OnInit, OnDestroy {
   private readonly pokemonFacade = inject(PokemonFacade);
   private readonly router = inject(Router);
   private readonly route = inject(ActivatedRoute);
+  private readonly destroy$ = new Subject<void>();
 
   readonly pokemons$ = this.pokemonFacade.pokemons$;
   readonly loading$ = this.pokemonFacade.loading$;
@@ -42,26 +43,33 @@ export class PokemonPageComponent implements OnInit {
   displayedColumns = POKEMON_TABLE_COLUMNS;
 
   ngOnInit(): void {
-    this.route.queryParamMap.pipe(distinctUntilChanged()).subscribe((params) => {
-      const pageParam = Number(params.get('page'));
-      const requestedPage = isNaN(pageParam) || pageParam < 1 ? 1 : pageParam;
-      const maxPage = 10;
+    this.route.queryParamMap
+      .pipe(distinctUntilChanged(), takeUntil(this.destroy$))
+      .subscribe((params) => {
+        const pageParam = Number(params.get('page'));
+        const requestedPage = isNaN(pageParam) || pageParam < 1 ? 1 : pageParam;
+        const maxPage = 10;
 
-      const safePage = Math.min(requestedPage, maxPage);
+        const safePage = Math.min(requestedPage, maxPage);
 
-      if (pageParam !== safePage) {
-        this.router.navigate([], {
-          relativeTo: this.route,
-          queryParams: { page: safePage },
-          queryParamsHandling: 'merge',
-          replaceUrl: true,
-        });
+        if (pageParam !== safePage) {
+          this.router.navigate([], {
+            relativeTo: this.route,
+            queryParams: { page: safePage },
+            queryParamsHandling: 'merge',
+            replaceUrl: true,
+          });
 
-        return;
-      }
+          return;
+        }
 
-      this.pokemonFacade.loadPokemons(safePage);
-    });
+        this.pokemonFacade.loadPokemons(safePage);
+      });
+  }
+
+  ngOnDestroy(): void {
+    this.destroy$.next();
+    this.destroy$.complete();
   }
 
   loadNextPokemonBatch(page: number): void {

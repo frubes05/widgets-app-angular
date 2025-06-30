@@ -13,9 +13,13 @@
     justify-content: center;
     align-items: center;
     padding: $spacing-xxl;
-    min-height: calc(100vh - 128px);
+    min-height: calc(100vh - 112px);
     background-image: url('../../../../public/assets/bg-green-2x-optim.png');
     background-repeat: no-repeat;
     background-size: cover;
+
+    @media (min-width: 600px) {
+      min-height: calc(100vh - 128px);
+    }
   }
 }
